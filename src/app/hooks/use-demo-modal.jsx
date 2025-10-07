@@ -1,22 +1,23 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+"use client";
+import { createContext, useContext, useState, ReactNode } from "react";
 
-interface DemoModalContextType {
-  isOpen: boolean;
-  openModal: () => void;
-  closeModal: () => void;
-}
+// interface DemoModalContextType {
+//   isOpen: boolean;
+//   openModal: () => void;
+//   closeModal: () => void;
+// }
 
-const DemoModalContext = createContext<DemoModalContextType | undefined>(undefined);
+const DemoModalContext = createContext(undefined);
 
-export function DemoModalProvider({ children }: { children: ReactNode }) {
+export function DemoModalProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    console.log('Opening demo modal...');
+    console.log("Opening demo modal...");
     setIsOpen(true);
   };
   const closeModal = () => {
-    console.log('Closing demo modal...');
+    console.log("Closing demo modal...");
     setIsOpen(false);
   };
 
@@ -30,7 +31,7 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
 export function useDemoModal() {
   const context = useContext(DemoModalContext);
   if (context === undefined) {
-    throw new Error('useDemoModal must be used within a DemoModalProvider');
+    throw new Error("useDemoModal must be used within a DemoModalProvider");
   }
   return context;
 }
