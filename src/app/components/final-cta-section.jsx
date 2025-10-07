@@ -3,6 +3,7 @@ import { Rocket, Shield, Award, Users, ArrowRight, Star } from "lucide-react";
 
 export default function FinalCTASection() {
   // const { openModal } = useDemoModal();
+
   const trustBadges = [
     {
       icon: Award,
@@ -68,7 +69,7 @@ export default function FinalCTASection() {
           {/* CTA Button */}
           <div className="flex justify-center max-w-2xl mx-auto">
             <button
-              onClick={openModal}
+              // onClick={openModal}
               className="group w-full sm:w-auto bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-12 py-5 rounded-full font-bold text-xl hover:bg-white/20 hover:border-white/50 transition-all duration-300 transform hover:scale-105"
             >
               <span className="font-poppins">Book Free Demo Call</span>

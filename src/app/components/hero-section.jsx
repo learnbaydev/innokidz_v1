@@ -6,7 +6,8 @@ import {
   PlayCircle,
   ChevronRight,
 } from "lucide-react";
-import heroImage from "@assets/ChatGPT Image Jun 28, 2025,11_15_37 PM_1751132773818.png";
+// import heroImage from "@assets/ChatGPT Image Jun 28, 2025,11_15_37 PM_1751132773818.png";
+import heroImage from "../attached_assets/ChatGPT_ImageJun_28_2025_11_15_37_PM_1751132773818.png";
 // import { useDemoModal } from '@/hooks/use-demo-modal';
 
 export default function HeroSection() {
@@ -60,7 +61,7 @@ export default function HeroSection() {
               <button
                 onClick={() => {
                   console.log("Start Free Trial button clicked");
-                  openModal();
+                  // openModal();
                 }}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-12 py-3 sm:py-5 rounded-2xl font-bold text-base sm:text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform glow-pink font-poppins"
               >

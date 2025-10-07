@@ -1,0 +1,90 @@
+You are a professional UI/UX and full-stack web designer.
+
+I want you to create a complete responsive website using modern frontend frameworks (React + Tailwind) for my new offline startup based in Bangalore.
+
+🎯 Brand Concept:
+This website is for a program that teaches **entrepreneurship to kids (ages 10–18)**. The program includes:
+- Ideation and creative thinking
+- Vibe coding (fun + intuitive coding)
+- AI fundamentals
+- Product building (end-to-end)
+- Marketing basics (social, storytelling, branding)
+- Pitching like a startup founder
+
+Our mission: **Build the Founders of Tomorrow.**
+
+👨‍👩‍👧 Target Audience:
+- Primary: Kids 10–18 (tech-savvy, curious)
+- Secondary: Parents (looking for future-skills for kids)
+
+🧠 Overall Tone:
+- Aspirational
+- Youthful
+- Fun + Serious Learning
+- Bold and futuristic
+
+🧩 Refer to the clean UI structure and spacing from the sample design I provided earlier (use soft backgrounds, bold text for CTAs, rounded buttons, icons for each module, and use modern kid-friendly fonts).
+
+📄 Sections & Text Content (write full actual copies):
+
+1. **Hero Section**
+   - Title: *"Build the Future – Start Young!"*
+   - Subtitle: *"From Ideas to Products. Learn AI, Coding, Branding, and become a Kid Founder."*
+   - CTA Buttons: [Start Your Journey] [Download Brochure]
+   - Add a background illustration of kids building robots or presenting ideas
+
+2. **About the Program**
+   - Heading: *"Entrepreneurship for Kids — Redefined"*
+   - Paragraph: *"This is not just a course. It's a launchpad. Your child learns to think like a founder, build real tech products, and pitch like a pro. With expert mentors, exciting hands-on projects, and real startup exposure – we make kids future-ready."*
+
+3. **What You’ll Learn** (grid-style with icons)
+   - Product Ideation 💡
+   - Vibe Coding (Replit, Canva, No-Code) 🧑‍💻
+   - Generative AI Basics 🤖
+   - Marketing & Storytelling 📢
+   - Website & App Building 🧱
+   - Launch & Pitch 🚀
+
+4. **Why This Program**
+   - Heading: *"Why Start Young?"*
+   - Bullets with icons:
+     - Develop problem-solving mindset
+     - Learn real-world skills early
+     - Build confidence and communication
+     - Exposure to tech + business
+     - Turn imagination into actual product
+
+5. **Success Path Section** – Display 3-step visual roadmap:
+   - Step 1: *Discover Your Idea*
+   - Step 2: *Build Your Product*
+   - Step 3: *Launch Like a Founder*
+
+6. **Testimonials**
+   - Use 2–3 testimonials from parents and kids
+   - Highlight growth, confidence, and creative thinking
+
+7. **Mentors & Experts**
+   - Add placeholder cards for 3 mentors with photo, name, and "Ex-Startup/Tech Founder" labels
+
+8. **Join Now / CTA**
+   - Heading: *"Are You Ready to Be a Founder?"*
+   - Subtext: *"Seats are limited. This is your child’s chance to learn how to think, build, and launch like an entrepreneur."*
+   - Buttons: [Book Free Demo] [Talk to Counselor]
+
+9. **Footer**
+   - Contact Info (Phone, WhatsApp, Email)
+   - Social Links
+   - Newsletter Signup
+   - Program Location: *HSR Layout, Bangalore*
+
+🎨 Design Guidelines:
+- Color palette: Bright blues, pastel yellows, mint greens
+- Fonts: Rounded modern fonts like Nunito, Poppins
+- Icons: Use playful yet professional SVG icons for each skill
+- Spacing: Maintain clean whitespace and large paddings
+- Buttons: Rounded edges, hover transitions
+
+📱 Must be fully responsive (mobile, tablet, desktop)
+
+🚀 Deliver this as a production-ready website with modern code structure. Include reusable components for testimonials, cards, and CTA buttons.
+

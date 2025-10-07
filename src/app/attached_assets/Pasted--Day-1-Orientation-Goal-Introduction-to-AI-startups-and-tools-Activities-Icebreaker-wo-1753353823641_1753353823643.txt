@@ -1,0 +1,192 @@
+📌 Day 1: Orientation
+
+Goal: Introduction to AI, startups, and tools.
+Activities:
+
+• Icebreaker + workshop overview
+• Demo of key tools (ChatGPT, Canva, Replit)
+• Explain project expectations (website + app in 8 days)
+ 
+📌 Day 2: Team Formation & Startup Selection
+
+Goal: Form teams, pick ideas, learn prompt engineering.
+
+Tool
+Teach/Use?
+Free/Paid
+Purpose
+ChatGPT
+Teach
+Free (GPT-3.5)
+Brainstorming, 1-line pitch
+Deepseek
+Use
+Free
+Alternative to ChatGPT
+Canva
+Teach (basic)
+Free (Pro paid)
+Brand moodboard
+Ideogram
+Teach
+Free
+AI logo ideas
+Activities:
+
+1. Team formation (5 teams of 2).
+2. Pick 1 startup idea from a list (e.g., "AI Homework Helper").
+3. Use ChatGPT to draft:
+o Product name
+o 1-line pitch
+o 3-line description
+4. Ideogram demo (generate logo concepts).
+ 
+📌 Day 3: Logo & Branding
+
+Goal: Create brand identity (logo, colors, social bios).
+
+Tool
+Teach/Use?
+Free/Paid
+Purpose
+Ideogram
+Teach
+Free
+Final logo design
+Canva
+Use
+Free
+Logo refinement, brand board
+Coolors.co
+Teach
+Free
+Color palette generator
+Activities:
+
+1. Finalize logo using Ideogram.
+2. Create brand colors (Coolors.co).
+3. Design social media bios (ChatGPT-assisted).
+4. Mock up a "Brand Board" in Canva.
+ 
+📌 Day 4: Website Building (Front End)
+
+Goal: Build a landing page with AI assistance.
+
+Tool
+Teach/Use?
+Free/Paid
+Purpose
+Replit
+Teach
+Free
+HTML/CSS website
+Framer AI
+Use
+Free (limited)
+Alternative to Replit
+ChatGPT
+Use
+Free
+Generate "About Us" text
+Activities:
+
+1. Start with a Replit template (pre-made HTML/CSS).
+2. Add:
+o Logo + hero section
+o ChatGPT-generated "About Us"
+o Canva-made banners
+3. Publish first version.
+ 
+📌 Day 5: App/Feature Expansion
+
+Goal: Add functionality (app or website features).
+
+Tool
+Teach/Use?
+Free/Paid
+Purpose
+MIT App Inventor
+Teach
+Free
+Simple app development
+Glide Apps
+Use
+Free (Paid upgrades)
+Turn Google Sheets into app
+Google Forms
+Teach
+Free
+Embed contact forms
+Activities:
+
+• Option 1: Build app with MIT App Inventor (if time allows).
+• Option 2: Add website features (Google Forms, new pages).
+ 
+📌 Day 6: Marketing Creatives
+
+Goal: Design promo content (posters, videos).
+
+Tool
+Teach/Use?
+Free/Paid
+Purpose
+Canva
+Teach
+Free
+Posters/carousels
+D-ID
+Use
+Free (credits)
+AI avatar videos
+CapCut
+Teach
+Free
+Edit promo reels
+Activities:
+
+1. Create in Canva:
+o 1 poster
+o 3-slide carousel
+2. Use D-ID to generate a 20-sec AI video pitch.
+ 
+📌 Day 7: Automation & Analytics
+
+Goal: Add simple AI automation + mock analytics.
+
+Tool
+Teach/Use?
+Free/Paid
+Purpose
+n8n
+Teach
+Free
+Basic automation
+Google Sheets
+Use
+Free
+Mock analytics dashboard
+Activities:
+
+1. Set up:
+o Google Form → Sheets (feedback tracker).
+o n8n demo (e.g., "Notify team on new signups").
+2. Create mock "user metrics" in Sheets.
+ 
+📌 Day 8: Presentations
+
+Goal: Demo websites/apps + reflect on AI tools.
+Activities:
+
+1. Each team presents:
+o Live website/app demo.
+o 2-min pitch (use D-ID avatar if pre-recorded).
+2. Vote for "Best AI Startup" (fun incentive!).
+NOTES:
+Research – ChatGPT
+Coding related, complex tasks – Deepseek
+Website – Lovable
+Logo – Ideogram
+App building – Glide
+Video – D-ID
+ 
+ 

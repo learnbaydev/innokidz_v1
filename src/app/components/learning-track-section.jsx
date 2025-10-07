@@ -304,7 +304,7 @@ export default function LearningTrackSection() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <button
-                onClick={openModal}
+                // onClick={openModal}
                 className="bg-white text-purple-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform font-poppins"
               >
                 Start Free Trial

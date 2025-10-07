@@ -18,7 +18,6 @@ import {
 
 export default function WhyCreativityMattersSection() {
   // const { openModal } = useDemoModal();
-
   const parentChallenges = [
     {
       number: "1",
@@ -230,7 +229,7 @@ export default function WhyCreativityMattersSection() {
             {/* Right Side - CTA Button */}
             <div className="flex-shrink-0">
               <button
-                onClick={openModal}
+                // onClick={openModal}
                 className="inline-flex items-center space-x-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-emerald-500/30 transform hover:scale-105 transition-all duration-300 group"
               >
                 <span>Start Free Demo</span>

@@ -16,7 +16,7 @@ function HomeContent() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <HeroSection />
+      {/* <HeroSection /> */}
       <ThreeStepJourneySection />
       <SkillsCombinationSection />
       <WhyCreativityMattersSection />

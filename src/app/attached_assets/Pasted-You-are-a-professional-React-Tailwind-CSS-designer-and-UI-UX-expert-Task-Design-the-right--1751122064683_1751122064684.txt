@@ -1,0 +1,75 @@
+You are a professional React + Tailwind CSS designer and UI/UX expert.
+
+🎯 Task:
+Design the **right-side infographic section** of a Hero Section for a website teaching entrepreneurship to kids. Replicate the approved design (attached visual) exactly. Do NOT change or generate the left content.
+
+---
+
+📌 Core Design Requirements:
+
+Create a central **monitor-style panel** with:
+- Title: **"8 Weeks to Entrepreneur"** in large bold text
+- Subtitle: *"Build • Create • Promote"* below it in light blue
+- Background color: dark navy (#0f172a) or matching deep blue from the reference image
+- Rounded corners with subtle shadow/glow
+
+Around the monitor, arrange the following **4 icon-based elements** in a circular flow using **dotted connecting lines**:
+
+1. **Build**
+   - Icon: Wrench or gear
+   - Color: Bright yellow/orange
+   - Text: “Build” (bold, small font)
+   - Placement: Left side
+
+2. **Create**
+   - Icon: Lightbulb
+   - Color: Yellow or gold
+   - Text: “Create”
+   - Placement: Top center
+
+3. **Promote**
+   - Icon: Megaphone
+   - Color: Pink/red
+   - Text: “Promote”
+   - Placement: Bottom right
+
+4. **Future-Ready Skills**
+   - Icon: Checkmark inside a teal-green circle
+   - Text: “Future-Ready Skills”
+   - Placement: Top right or floating slightly above the right edge
+
+Connect all 4 items to the central monitor using **animated dotted lines** (use `border-dotted` or animated SVG paths).
+
+---
+
+📐 Layout & Theme:
+- Match the current **gradient purple-blue background**
+- Maintain spacing consistent with current hero section layout
+- Use **Poppins or Nunito** font family
+- Use Tailwind utility classes for layout, typography, color, and hover effects
+
+---
+
+📱 Responsive Design:
+- On desktop: align this panel to the right of the main Hero content
+- On tablets: scale down icons and center the full panel
+- On mobile: stack monitor first, then icons underneath in 2x2 grid layout
+
+---
+
+💫 Animations:
+- Icons should slightly scale up on hover (`hover:scale-105`)
+- Use glowing pulses for the dotted connector or icons (e.g., `animate-pulse` or custom keyframes)
+- Monitor can fade-in from bottom (`animate-fadeInUp` style animation)
+
+---
+
+🎨 Bonus (Optional):
+- Add small tool icons (Canva, ChatGPT, Replit) in the lower area inside or near the monitor with the label: “Real Tools. Real Skills.”
+- Let the **rocket or megaphone icon** have a slight floating bounce (`animate-bounce`) to catch attention
+
+---
+
+💡 Final Goal:
+Build a vibrant, fun, and interactive right-side infographic that explains the journey of learning to *Build, Create, Promote*, and become **future-ready** — using 100% Replit-compatible assets (no real faces or stock images), and matching the existing theme perfectly.
+

@@ -129,7 +129,7 @@ export default function App() {
             <div className="flex items-center space-x-4">
               {/* Desktop CTA Button - Rounded Square */}
               <Button
-                onClick={openModal}
+                // onClick={openModal}
                 className="hidden md:inline-flex relative bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 text-white hover:shadow-xl hover:shadow-purple-500/40 font-bold px-6 py-6 text-base transform hover:scale-105 transition-all duration-300 font-poppins overflow-hidden group rounded-2xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/15 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600"></div>
@@ -193,7 +193,7 @@ export default function App() {
               {/* Mobile CTA Button - Rounded Square */}
               <div className="pt-4 border-t border-gray-200 mt-4">
                 <Button
-                  onClick={openModal}
+                  // onClick={openModal}
                   className="w-full relative bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 text-white hover:shadow-xl hover:shadow-purple-500/40 font-bold px-8 py-4 text-base transform hover:scale-105 transition-all duration-300 font-poppins overflow-hidden group rounded-2xl mb-4"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/15 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600"></div>
