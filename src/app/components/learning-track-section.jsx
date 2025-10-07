@@ -1,11 +1,32 @@
-import { useState } from 'react';
-import { BookOpen, Code2, Rocket, CheckCircle, Star, Target, Users, TrendingUp, ArrowRight, Clock, Award, Palette, Globe, Smartphone, BarChart3, Video, Zap } from 'lucide-react';
-import { SiChatbot, SiCanva, SiReplit, SiGoogleforms, SiGooglesheets, SiNotion } from 'react-icons/si';
-import { useDemoModal } from '@/hooks/use-demo-modal';
+"use client"; // ✅ Add this at the very top
+
+import React, { useState } from "react";
+import {
+  BookOpen,
+  Rocket,
+  Users,
+  Palette,
+  Globe,
+  Smartphone,
+  Video,
+  Zap,
+  BarChart3,
+} from "lucide-react";
+import {
+  SiChatbot,
+  SiCanva,
+  SiReplit,
+  SiGoogleforms,
+  SiGooglesheets,
+  SiNotion,
+} from "react-icons/si";
+// import { useDemoModal } from "@/hooks/use-demo-modal";
+
+// ... rest of your code
 
 export default function LearningTrackSection() {
-  const { openModal } = useDemoModal();
-  const [selectedWeek, setSelectedWeek] = useState(1);
+  // const { openModal } = useDemoModal();
+  const [selectedWeek, setSelectedWeek] = useState(1); // ✅ correct syntax
 
   const weeklyProgram = {
     1: {
@@ -22,8 +43,8 @@ export default function LearningTrackSection() {
           activities: [
             "Icebreaker + workshop overview",
             "Demo of key tools (ChatGPT, Canva, Replit)",
-            "Explain project expectations (website + app in 4 days)"
-          ]
+            "Explain project expectations (website + app in 4 days)",
+          ],
         },
         {
           day: 2,
@@ -35,10 +56,10 @@ export default function LearningTrackSection() {
             "Team formation (5 teams of 2)",
             "Pick 1 startup idea from a list (e.g., 'AI Homework Helper')",
             "Use ChatGPT to draft: Product name, 1-line pitch, 3-line description",
-            "Ideogram demo (generate logo concepts)"
-          ]
-        }
-      ]
+            "Ideogram demo (generate logo concepts)",
+          ],
+        },
+      ],
     },
     2: {
       title: "Design & Branding",
@@ -55,8 +76,8 @@ export default function LearningTrackSection() {
             "Finalize logo using Ideogram",
             "Create brand colors (Coolors.co)",
             "Design social media bios (ChatGPT-assisted)",
-            "Mock up a 'Brand Board' in Canva"
-          ]
+            "Mock up a 'Brand Board' in Canva",
+          ],
         },
         {
           day: 4,
@@ -69,10 +90,10 @@ export default function LearningTrackSection() {
             "Add: Logo + hero section",
             "ChatGPT-generated 'About Us'",
             "Canva-made banners",
-            "Publish first version"
-          ]
-        }
-      ]
+            "Publish first version",
+          ],
+        },
+      ],
     },
     3: {
       title: "Development & Features",
@@ -89,8 +110,8 @@ export default function LearningTrackSection() {
             "Option 1: Build app with MIT App Inventor (if time allows)",
             "Option 2: Add website features (Google Forms, new pages)",
             "Integrate interactive elements",
-            "Test functionality across devices"
-          ]
+            "Test functionality across devices",
+          ],
         },
         {
           day: 6,
@@ -102,10 +123,10 @@ export default function LearningTrackSection() {
             "Create in Canva: 1 poster, 3-slide carousel",
             "Use D-ID to generate a 20-sec AI video pitch",
             "Edit promo reels with CapCut",
-            "Develop social media content strategy"
-          ]
-        }
-      ]
+            "Develop social media content strategy",
+          ],
+        },
+      ],
     },
     4: {
       title: "Launch & Analytics",
@@ -122,8 +143,8 @@ export default function LearningTrackSection() {
             "Set up: Google Form → Sheets (feedback tracker)",
             "n8n demo (e.g., 'Notify team on new signups')",
             "Create mock 'user metrics' in Sheets",
-            "Implement basic automation workflows"
-          ]
+            "Implement basic automation workflows",
+          ],
         },
         {
           day: 8,
@@ -135,16 +156,20 @@ export default function LearningTrackSection() {
             "Each team presents: Live website/app demo",
             "2-min pitch (use D-ID avatar if pre-recorded)",
             "Vote for 'Best AI Startup' (fun incentive!)",
-            "Reflection and next steps discussion"
-          ]
-        }
-      ]
-    }
+            "Reflection and next steps discussion",
+          ],
+        },
+      ],
+    },
   };
 
+  const weekData = weeklyProgram[selectedWeek];
+
   return (
-    <section id="curriculum" className="py-16 lg:py-24 bg-white relative overflow-hidden">
-      {/* Simplified Background */}
+    <section
+      id="curriculum"
+      className="py-16 lg:py-24 bg-white relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -170,8 +195,8 @@ export default function LearningTrackSection() {
                 onClick={() => setSelectedWeek(week)}
                 className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
                   selectedWeek === week
-                    ? `bg-gradient-to-r ${weeklyProgram[week as keyof typeof weeklyProgram].gradient} text-white shadow-lg`
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-white'
+                    ? `bg-gradient-to-r ${weeklyProgram[week].gradient} text-white shadow-lg`
+                    : "text-gray-600 hover:text-gray-900 hover:bg-white"
                 }`}
               >
                 Week {week}
@@ -182,40 +207,40 @@ export default function LearningTrackSection() {
 
         {/* Week Content */}
         <div className="relative">
-          <div className={`bg-gradient-to-br ${weeklyProgram[selectedWeek as keyof typeof weeklyProgram].bgGradient} rounded-3xl p-8 lg:p-12 shadow-xl border-2 border-gray-200`}>
-            {/* Week Header */}
+          <div
+            className={`bg-gradient-to-br ${weekData.bgGradient} rounded-3xl p-8 lg:p-12 shadow-xl border-2 border-gray-200`}
+          >
             <div className="text-center mb-12">
               <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4 font-poppins">
-                Week {selectedWeek}: {weeklyProgram[selectedWeek as keyof typeof weeklyProgram].title}
+                Week {selectedWeek}: {weekData.title}
               </h3>
             </div>
 
-            {/* Day Cards Grid */}
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              {weeklyProgram[selectedWeek as keyof typeof weeklyProgram].days.map((day, index) => {
+              {weekData.days.map((day, index) => {
                 const Icon = day.icon;
                 return (
-                  <div 
+                  <div
                     key={index}
                     className="group relative bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200 hover:border-gray-300"
                   >
-                    {/* Day Number Badge */}
                     <div className="absolute -top-4 left-8">
-                      <div className={`w-8 h-8 bg-gradient-to-r ${weeklyProgram[selectedWeek as keyof typeof weeklyProgram].gradient} text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg`}>
+                      <div
+                        className={`w-8 h-8 bg-gradient-to-r ${weekData.gradient} text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg`}
+                      >
                         {day.day}
                       </div>
                     </div>
 
-                    {/* Hover background effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-purple-50/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
+
                     <div className="relative">
-                      {/* Icon */}
-                      <div className={`w-16 h-16 bg-gradient-to-r ${weeklyProgram[selectedWeek as keyof typeof weeklyProgram].gradient} rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/25 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`w-16 h-16 bg-gradient-to-r ${weekData.gradient} rounded-2xl flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}
+                      >
                         <Icon className="w-8 h-8 text-white" />
                       </div>
-                      
-                      {/* Content */}
+
                       <h4 className="text-2xl lg:text-3xl font-bold text-slate-900 font-poppins mb-3 leading-tight">
                         Day {day.day}: {day.title}
                       </h4>
@@ -223,16 +248,15 @@ export default function LearningTrackSection() {
                         <strong>Goal:</strong> {day.goal}
                       </p>
 
-                      {/* Tech Logos Section */}
-                      {day.techLogos && day.techLogos.length > 0 && (
+                      {day.techLogos?.length > 0 && (
                         <div className="mb-6">
                           <h5 className="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide">
                             Tools Used
                           </h5>
                           <div className="flex flex-wrap gap-3">
-                            {day.techLogos.map((TechIcon, logoIndex) => (
-                              <div 
-                                key={logoIndex}
+                            {day.techLogos.map((TechIcon, i) => (
+                              <div
+                                key={i}
                                 className="flex items-center justify-center w-12 h-12 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200 group"
                               >
                                 <TechIcon className="w-6 h-6 text-slate-600 group-hover:text-slate-800 transition-colors duration-200" />
@@ -242,17 +266,20 @@ export default function LearningTrackSection() {
                         </div>
                       )}
 
-                      {/* Activities List */}
                       <div>
                         <h5 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                           <BookOpen className="w-5 h-5" />
                           Activities
                         </h5>
                         <ul className="space-y-3">
-                          {day.activities.map((activity, activityIndex) => (
-                            <li key={activityIndex} className="flex items-start space-x-3">
-                              <div className={`w-2 h-2 bg-gradient-to-r ${weeklyProgram[selectedWeek as keyof typeof weeklyProgram].gradient} rounded-full mt-2 flex-shrink-0`}></div>
-                              <span className="text-slate-600 text-sm lg:text-base leading-relaxed">{activity}</span>
+                          {day.activities.map((activity, i) => (
+                            <li key={i} className="flex items-start space-x-3">
+                              <div
+                                className={`w-2 h-2 bg-gradient-to-r ${weekData.gradient} rounded-full mt-2 flex-shrink-0`}
+                              ></div>
+                              <span className="text-slate-600 text-sm lg:text-base leading-relaxed">
+                                {activity}
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -265,7 +292,7 @@ export default function LearningTrackSection() {
           </div>
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <div className="text-center mt-16 lg:mt-20">
           <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 rounded-3xl p-8 lg:p-12 text-white shadow-2xl">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 font-poppins">
@@ -274,20 +301,22 @@ export default function LearningTrackSection() {
             <p className="text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
               Join our program and watch your child build real projects.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button 
+              <button
                 onClick={openModal}
                 className="bg-white text-purple-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform font-poppins"
               >
                 Start Free Trial
               </button>
-              <button 
+              <button
                 onClick={() => {
-                  const curriculumSection = document.getElementById('curriculum');
-                  if (curriculumSection) {
-                    curriculumSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
+                  const section = document.getElementById("curriculum");
+                  if (section)
+                    section.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
                 }}
                 className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300 font-poppins"
               >

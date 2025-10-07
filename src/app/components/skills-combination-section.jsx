@@ -11,11 +11,17 @@ import {
   Star,
 } from "lucide-react";
 import { useState } from "react";
-import codingKidsImage from "@assets/image_1753437308706.png";
-import aiThinkingImage from "@assets/image_1753438314200.png";
-import presentingImage from "@assets/image_1753437787006.png";
 
-export default function SkillsCombinationSection() {
+// MOCKING: Replacing external image imports with placeholder URLs for single-file mandate
+const codingKidsImage =
+  "https://placehold.co/400x300/a3e635/000000?text=AI+Coding";
+const aiThinkingImage =
+  "https://placehold.co/400x300/c084fc/ffffff?text=Product+Building";
+const presentingImage =
+  "https://placehold.co/400x300/fb923c/000000?text=Startup+Pitch";
+
+export default function App() {
+  // Renamed from SkillsCombinationSection to App
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -113,37 +119,8 @@ export default function SkillsCombinationSection() {
     goToSlide(prev);
   };
 
-  const getColorClasses = (color) => {
-    switch (color) {
-      case "cyan":
-        return {
-          bg: "from-cyan-500 to-blue-500",
-          icon: "bg-cyan-500",
-          bullet: "text-cyan-500",
-        };
-      case "purple":
-        return {
-          bg: "from-purple-500 to-pink-500",
-          icon: "bg-purple-500",
-          bullet: "text-purple-500",
-        };
-      case "orange":
-        return {
-          bg: "from-orange-500 to-red-500",
-          icon: "bg-orange-500",
-          bullet: "text-orange-500",
-        };
-      default:
-        return {
-          bg: "from-slate-500 to-slate-600",
-          icon: "bg-slate-500",
-          bullet: "text-slate-500",
-        };
-    }
-  };
-
   return (
-    <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center py-16 lg:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-20 left-20 w-64 h-64 bg-purple-200/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-200/10 rounded-full blur-3xl"></div>
@@ -173,7 +150,7 @@ export default function SkillsCombinationSection() {
               className={`absolute inset-0 bg-gradient-to-br ${skills[activeSlide].bgGradient} transition-all duration-700 ease-in-out`}
             ></div>
 
-            <div className="relative z-10 grid lg:grid-cols-2 gap-0 min-h-[420px]">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[420px]">
               {/* Left Side - Main Content */}
               <div className="p-8 lg:p-12 flex flex-col justify-center">
                 {/* Animated Icon */}
@@ -205,10 +182,12 @@ export default function SkillsCombinationSection() {
                   {skills[activeSlide].features.map((feature, index) => (
                     <div
                       key={index}
-                      className={`flex items-center space-x-2 opacity-0 animate-[fadeInUp_0.5s_ease-out_${
-                        index * 0.1
-                      }s_forwards]`}
+                      className={`flex items-center space-x-2 transition-opacity duration-300 ${
+                        isAnimating ? "opacity-0" : "opacity-100"
+                      }`}
+                      style={{ transitionDelay: `${index * 0.05}s` }}
                     >
+                      {/* Using Star directly for feature bullet */}
                       <Star
                         className={`w-3.5 h-3.5 text-${skills[activeSlide].color}-500 flex-shrink-0`}
                       />
@@ -221,7 +200,7 @@ export default function SkillsCombinationSection() {
 
                 {/* Stat Badge */}
                 <div
-                  className={`inline-flex items-center bg-gradient-to-r ${skills[activeSlide].gradient} text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg max-w-fit`}
+                  className={`inline-flex items-center bg-gradient-to-r ${skills[activeSlide].gradient} text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg max-w-fit mt-4`}
                 >
                   <Zap className="w-3.5 h-3.5 mr-1.5" />
                   {skills[activeSlide].stat}
@@ -229,26 +208,33 @@ export default function SkillsCombinationSection() {
               </div>
 
               {/* Right Side - Compelling Copy & Visuals */}
-              <div className="relative p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-white/50 to-transparent">
+              <div className="relative p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-white/50 to-transparent border-t lg:border-t-0 lg:border-l border-slate-200/50">
                 {/* Main Content */}
                 <div className="text-center">
                   {/* Real Image */}
                   <div className="mb-6 flex justify-center">
                     <div
-                      className={`w-56 h-40 rounded-2xl shadow-xl ${
-                        isAnimating ? "scale-105" : "scale-100"
-                      } transition-all duration-500 relative overflow-hidden`}
+                      className={`w-full max-w-sm h-48 rounded-2xl shadow-xl ${
+                        isAnimating
+                          ? "scale-95 opacity-50"
+                          : "scale-100 opacity-100"
+                      } transition-all duration-300 relative overflow-hidden`}
                     >
                       <img
                         src={skills[activeSlide].rightContent.image}
                         alt={skills[activeSlide].rightContent.headline}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src =
+                            "https://placehold.co/400x300/e0f2f1/0f766e?text=Image+Error";
+                        }}
                       />
 
-                      {/* Floating sparkles */}
-                      <div className="absolute top-3 right-3 w-2.5 h-2.5 bg-yellow-400 rounded-full animate-ping"></div>
-                      <div className="absolute bottom-4 left-3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse delay-1000"></div>
-                      <div className="absolute top-1/2 right-2 w-1 h-1 bg-blue-400 rounded-full animate-bounce delay-500"></div>
+                      {/* Floating sparkles - Adjusted animation classes */}
+                      <div className="absolute top-3 right-3 w-2.5 h-2.5 bg-yellow-400 rounded-full animate-pulse"></div>
+                      <div className="absolute bottom-4 left-3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse delay-500"></div>
+                      <div className="absolute top-1/2 right-2 w-1 h-1 bg-blue-400 rounded-full animate-pulse delay-1000"></div>
                     </div>
                   </div>
 
@@ -262,14 +248,14 @@ export default function SkillsCombinationSection() {
                   </p>
 
                   {/* Timeline and Milestone stats only */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border border-slate-200">
+                  <div className="grid grid-cols-2 gap-3 mt-6">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border border-slate-200 shadow-sm">
                       <div className="text-base font-bold text-slate-900">
                         {skills[activeSlide].rightContent.timeline}
                       </div>
                       <div className="text-xs text-slate-600">Timeline</div>
                     </div>
-                    <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border border-slate-200">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border border-slate-200 shadow-sm">
                       <div className="text-base font-bold text-slate-900">
                         {skills[activeSlide].rightContent.metric}
                       </div>
@@ -277,10 +263,6 @@ export default function SkillsCombinationSection() {
                     </div>
                   </div>
                 </div>
-
-                {/* Background accent elements */}
-                <div className="absolute top-8 right-8 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
-                <div className="absolute bottom-8 left-8 w-12 h-12 bg-white/30 rounded-full blur-lg"></div>
               </div>
             </div>
           </div>
@@ -289,7 +271,9 @@ export default function SkillsCombinationSection() {
           <div className="flex justify-between items-center mt-8">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors duration-200 group"
+              className="w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors duration-200 group disabled:opacity-50"
+              aria-label="Previous Slide"
+              disabled={isAnimating}
             >
               <ChevronLeft className="w-6 h-6 text-slate-600 group-hover:text-slate-800" />
             </button>
@@ -304,13 +288,17 @@ export default function SkillsCombinationSection() {
                       ? `bg-gradient-to-r ${skills[index].gradient} shadow-lg scale-125`
                       : "bg-slate-300 hover:bg-slate-400"
                   }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                  disabled={isAnimating}
                 />
               ))}
             </div>
 
             <button
               onClick={nextSlide}
-              className="w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors duration-200 group"
+              className="w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors duration-200 group disabled:opacity-50"
+              aria-label="Next Slide"
+              disabled={isAnimating}
             >
               <ChevronRight className="w-6 h-6 text-slate-600 group-hover:text-slate-800" />
             </button>

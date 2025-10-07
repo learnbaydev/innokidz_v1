@@ -1,3 +1,5 @@
+"use client"; // ✅ must be the very first line
+
 import { createContext, useContext, useState } from "react";
 
 const DemoModalContext = createContext();
@@ -17,8 +19,7 @@ export function DemoModalProvider({ children }) {
 
 export function useDemoModal() {
   const context = useContext(DemoModalContext);
-  if (!context) {
-    throw new Error("useDemoModal must be used within a DemoModalProvider");
-  }
+  if (!context)
+    throw new Error("useDemoModal must be used within DemoModalProvider");
   return context;
 }

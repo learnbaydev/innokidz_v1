@@ -1,21 +1,88 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Calendar, Code, Star, Users } from "lucide-react";
-import { useDemoModal } from "@/hooks/use-demo-modal";
-import { Link, useLocation } from "wouter";
-import logoPath from "@assets/Frame 1_1753353129966.png";
+import {
+  Menu,
+  X,
+  Calendar,
+  Code,
+  Star,
+  Users,
+  Rocket, // Added a placeholder icon for the "About Us" link
+} from "lucide-react";
 
-export default function Navigation() {
+// --- Mocking External Dependencies for Single-File Environment ---
+
+// Mock Button Component (Replaces "@/components/ui/button")
+const Button = ({ children, onClick, className, variant, size, ...props }) => {
+  const baseClasses =
+    "flex items-center justify-center font-semibold rounded-xl transition-all duration-300 focus:outline-none";
+  let variantClasses = "bg-gray-200 text-gray-800 hover:bg-gray-300";
+
+  // Custom class for the main CTA button
+  if (className.includes("bg-gradient-to-r")) {
+    variantClasses = "text-white"; // Overridden by Tailwind classes in className
+  } else if (variant === "ghost") {
+    variantClasses = "bg-transparent hover:bg-purple-50";
+  }
+
+  return (
+    <button
+      onClick={onClick}
+      className={`${baseClasses} ${variantClasses} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+
+// Mock useDemoModal Hook (Replaces "@/hooks/use-demo-modal")
+const useDemoModal = () => ({
+  openModal: () => {
+    // In a real app, this would open a custom modal UI.
+    console.log("Action: Book Free Demo modal simulated to open.");
+  },
+});
+
+// Mock wouter for single-file environment (Replaces "wouter")
+// Since wouter is only used for tracking location (unused state) and Link, we simplify it.
+const useLocation = () => {
+  // Mock the required hook structure: [location, setLocation]
+  const [location] = useState("/");
+  return [location, () => {}];
+};
+const Link = ({ href, children, ...props }) => {
+  // Use an anchor tag and log the navigation attempt
+  return (
+    <a
+      href={href}
+      onClick={(e) => {
+        e.preventDefault();
+        console.log(`Navigation attempt to: ${href}`);
+        props.onClick && props.onClick(); // Execute original onClick if present (e.g., closing mobile menu)
+      }}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+};
+// --- End Mocking ---
+
+export default function App() {
+  // Renamed from Navigation to App
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openModal } = useDemoModal();
-  const [location] = useLocation();
+  const [location] = useLocation(); // Unused but keeps the structure
+
+  // Replaced external image path with a text logo for compliance
+  const logoPath = "InnoKidz";
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    // In this single-file context, we just simulate the scroll
+    console.log(`Simulating scroll to section: ${sectionId}`);
+    // A real implementation would look up the element by ID
+
     setMobileMenuOpen(false);
   };
 
@@ -29,11 +96,10 @@ export default function Navigation() {
               href="/"
               className="hover:scale-105 transition-transform duration-300 focus:outline-none"
             >
-              <img
-                src={logoPath}
-                alt="InnoKidz"
-                className="h-8 lg:h-10 w-auto"
-              />
+              {/* Using a text logo as a placeholder for the imported image */}
+              <span className="text-3xl font-extrabold text-purple-600 tracking-tight">
+                {logoPath}
+              </span>
             </Link>
           </div>
 
@@ -77,7 +143,10 @@ export default function Navigation() {
 
               {/* Login Text */}
               <div className="hidden md:block">
-                <span className="text-gray-600 hover:text-purple-600 cursor-pointer font-medium text-base font-poppins transition-colors duration-300">
+                <span
+                  className="text-gray-600 hover:text-purple-600 cursor-pointer font-medium text-base font-poppins transition-colors duration-300"
+                  onClick={() => console.log("Action: Login clicked.")}
+                >
                   Login
                 </span>
               </div>
@@ -89,7 +158,7 @@ export default function Navigation() {
                 className="md:hidden text-gray-700 hover:bg-purple-50 ml-1"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </Button>
             </div>
           </div>
@@ -105,7 +174,7 @@ export default function Navigation() {
               >
                 <Star
                   size={20}
-                  className="group-hover:scale-110 transition-transform duration-200"
+                  className="group-hover:scale-110 transition-transform duration-200 text-yellow-500"
                 />
                 <span>AI Tech Entrepreneurship Program</span>
               </button>
@@ -114,9 +183,9 @@ export default function Navigation() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center space-x-3 text-gray-600 hover:text-purple-600 transition-all duration-300 text-left py-4 px-5 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 font-semibold text-base font-poppins border border-transparent hover:border-purple-200 group"
               >
-                <Code
+                <Rocket
                   size={20}
-                  className="group-hover:scale-110 transition-transform duration-200"
+                  className="group-hover:scale-110 transition-transform duration-200 text-pink-500"
                 />
                 <span>About Us</span>
               </Link>
@@ -138,7 +207,10 @@ export default function Navigation() {
 
                 {/* Mobile Login */}
                 <div className="text-center">
-                  <span className="text-gray-600 hover:text-purple-600 cursor-pointer font-medium text-base font-poppins transition-colors duration-300">
+                  <span
+                    className="text-gray-600 hover:text-purple-600 cursor-pointer font-medium text-base font-poppins transition-colors duration-300"
+                    onClick={() => console.log("Action: Mobile Login clicked.")}
+                  >
                     Login
                   </span>
                 </div>
