@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-interface UseScrollRevealOptions {
-  threshold?: number;
-  rootMargin?: string;
-  triggerOnce?: boolean;
-}
+// interface UseScrollRevealOptions {
+//   threshold?: number;
+//   rootMargin?: string;
+//   triggerOnce?: boolean;
+// }
 
-export function useScrollReveal(options: UseScrollRevealOptions = {}) {
+export function useScrollReveal(options = {}) {
   const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options;
 
   const [isVisible, setIsVisible] = useState(false);
@@ -44,20 +44,16 @@ export function useScrollReveal(options: UseScrollRevealOptions = {}) {
   return { ref, isVisible };
 }
 
-export function useCountUp(
-  target: number,
-  duration: number = 2000,
-  isActive: boolean = false
-) {
+export function useCountUp(target, duration = 2000, isActive = false) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!isActive) return;
 
-    let startTime: number;
-    let animationFrame: number;
+    let startTime;
+    let animationFrame;
 
-    const animate = (currentTime: number) => {
+    const animate = (currentTime) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
 
