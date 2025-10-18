@@ -1,18 +1,11 @@
 import {
-  Brain,
-  Rocket,
-  Lightbulb,
-  TrendingUp,
-  ArrowRight,
-  BookOpen,
-  Code2,
-  Megaphone,
   AlertTriangle,
-  Clock,
-  TrendingDown,
-  Target,
-  Zap,
+  ArrowRight,
   Award,
+  Clock,
+  Target,
+  TrendingDown,
+  Zap,
 } from "lucide-react";
 // import { useDemoModal } from '@/hooks/use-demo-modal';
 

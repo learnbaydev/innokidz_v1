@@ -1,31 +1,23 @@
 "use client";
-import { useState } from "react";
 import {
-  BookOpen,
-  Code2,
-  Rocket,
-  CheckCircle,
-  Star,
-  Target,
-  Users,
-  TrendingUp,
-  ArrowRight,
-  Clock,
-  Award,
-  Palette,
-  Globe,
-  Smartphone,
   BarChart3,
+  BookOpen,
+  Globe,
+  Palette,
+  Rocket,
+  Smartphone,
+  Users,
   Video,
   Zap,
 } from "lucide-react";
+import { useState } from "react";
 import {
-  SiChatbot,
   SiCanva,
-  SiReplit,
+  SiChatbot,
   SiGoogleforms,
   SiGooglesheets,
   SiNotion,
+  SiReplit,
 } from "react-icons/si";
 // import { useDemoModal } from "@/hooks/use-demo-modal";
 

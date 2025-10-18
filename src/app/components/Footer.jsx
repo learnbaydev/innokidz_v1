@@ -4,18 +4,18 @@ import { useState } from "react";
 // import { input } from "@/components/ui/input";
 // import { input, button } from "@radix-ui/themes";
 import {
-  MapPin,
-  Phone,
-  MessageCircle,
-  Mail,
-  Send,
   Facebook,
   Instagram,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
   Youtube,
 } from "lucide-react";
 // import { useToast } from "@/hooks/use-toast";
-import logoImage from "../../../public/innokidz-footer-logo.png";
 import Image from "next/image";
+import logoImage from "../../../public/innokidz-footer-logo.png";
 
 export default function Footer() {
   const [email, setEmail] = useState("");

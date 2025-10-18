@@ -1,20 +1,18 @@
 "use client";
 import {
-  Monitor,
   Brain,
-  Mic,
-  ArrowRight,
-  CheckCircle,
   ChevronLeft,
   ChevronRight,
-  Zap,
+  Mic,
+  Monitor,
   Star,
+  Zap,
 } from "lucide-react";
-import { useState } from "react";
-import codingKidsImage from "../../../public/codingKidsImage.png";
-import aiThinkingImage from "../../../public/aiThinkingImage.png";
-import presentingImage from "../../../public/presentingImage.png";
 import Image from "next/image";
+import { useState } from "react";
+import aiThinkingImage from "../../../public/aiThinkingImage.png";
+import codingKidsImage from "../../../public/codingKidsImage.png";
+import presentingImage from "../../../public/presentingImage.png";
 
 export default function SkillsCombinationSection() {
   const [activeSlide, setActiveSlide] = useState(0);

@@ -1,13 +1,6 @@
-import {
-  Star,
-  Users,
-  Trophy,
-  Rocket,
-  PlayCircle,
-  ChevronRight,
-} from "lucide-react";
-import heroImage from "../../../public/hero-section-four-kids.png";
+import { Rocket } from "lucide-react";
 import Image from "next/image";
+import heroImage from "../../../public/hero-section-four-kids.png";
 // import { useDemoModal } from "@/hooks/use-demo-modal";
 
 export default function HeroSection() {

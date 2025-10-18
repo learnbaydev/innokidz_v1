@@ -1,13 +1,4 @@
-import {
-  Code2,
-  Lightbulb,
-  Gamepad2,
-  Users,
-  Presentation,
-  Target,
-  Sparkles,
-  Brain,
-} from "lucide-react";
+import { Code2, Lightbulb, Sparkles, Users } from "lucide-react";
 
 export default function AboutSection() {
   const futureProfessions = [

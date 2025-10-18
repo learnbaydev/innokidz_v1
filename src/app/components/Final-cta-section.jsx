@@ -1,4 +1,4 @@
-import { Rocket, Shield, Award, Users, ArrowRight, Star } from "lucide-react";
+import { Award, Rocket, Shield, Star, Users } from "lucide-react";
 // import { useDemoModal } from '@/hooks/use-demo-modal';
 
 export default function FinalCTASection() {

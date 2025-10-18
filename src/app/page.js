@@ -1,8 +1,6 @@
 import FinalCTASection from "./components/Final-cta-section";
-import Footer from "./components/Footer";
 import HeroSection from "./components/Hero-section";
 import LearningTrackSection from "./components/Learning-track-section";
-import Navigation from "./components/navigation";
 import SkillsCombinationSection from "./components/Skills-combination-section";
 import TestimonialsCompleteSection from "./components/Testimonials-complete-section";
 import ThreeStepJourneySection from "./components/Three-step-journey-section";
@@ -11,7 +9,6 @@ import WhyCreativityMattersSection from "./components/Why-creativity-matters-sec
 export default function Home() {
   return (
     <>
-      <Navigation />
       <HeroSection />
       <ThreeStepJourneySection />
       <SkillsCombinationSection />
@@ -19,7 +16,6 @@ export default function Home() {
       <LearningTrackSection />
       <TestimonialsCompleteSection />
       <FinalCTASection />
-      <Footer />
     </>
   );
 }

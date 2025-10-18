@@ -1,4 +1,4 @@
-import { Code2, Brain, Rocket } from 'lucide-react';
+import { Brain, Code2, Rocket } from "lucide-react";
 
 export default function ThreeStepJourneySection() {
   const steps = [
@@ -6,23 +6,26 @@ export default function ThreeStepJourneySection() {
       number: "1",
       icon: Brain,
       title: "Learn AI",
-      description: "Master ChatGPT, Python, and machine learning. Create AI-powered apps that can think, learn, and solve problems like magic.",
-      gradient: "from-purple-500 to-pink-500"
+      description:
+        "Master ChatGPT, Python, and machine learning. Create AI-powered apps that can think, learn, and solve problems like magic.",
+      gradient: "from-purple-500 to-pink-500",
     },
     {
-      number: "2", 
+      number: "2",
       icon: Code2,
       title: "Build Projects",
-      description: "Build actual mobile apps, interactive games, and stunning websites. Code real projects that friends and family will love using.",
-      gradient: "from-cyan-500 to-blue-500"
+      description:
+        "Build actual mobile apps, interactive games, and stunning websites. Code real projects that friends and family will love using.",
+      gradient: "from-cyan-500 to-blue-500",
     },
     {
       number: "3",
       icon: Rocket,
-      title: "Launch Brand", 
-      description: "Pitch your startup ideas to real entrepreneurs and investors. Transform from shy kid to confident young leader ready for anything.",
-      gradient: "from-orange-500 to-red-500"
-    }
+      title: "Launch Brand",
+      description:
+        "Pitch your startup ideas to real entrepreneurs and investors. Transform from shy kid to confident young leader ready for anything.",
+      gradient: "from-orange-500 to-red-500",
+    },
   ];
 
   return (
@@ -54,7 +57,7 @@ export default function ThreeStepJourneySection() {
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="group relative bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-slate-300"
               >
@@ -67,13 +70,15 @@ export default function ThreeStepJourneySection() {
 
                 {/* Hover background effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-purple-50/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 <div className="relative">
                   {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/25 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/25 mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  
+
                   {/* Content */}
                   <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 font-poppins mb-4 leading-tight">
                     {step.title}
