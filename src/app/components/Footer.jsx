@@ -16,6 +16,7 @@ import {
 // import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 import logoImage from "../../../public/innokidz-footer-logo.png";
+import Link from "next/link";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -57,7 +58,7 @@ export default function Footer() {
               >
                 <Facebook size={20} />
               </button>
-              <a
+              <Link
                 href="https://www.instagram.com/innokidzofficial/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -70,8 +71,8 @@ export default function Footer() {
                 >
                   <Instagram size={20} />
                 </button>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.youtube.com/@Innokidzofficial"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -84,7 +85,7 @@ export default function Footer() {
                 >
                   <Youtube size={20} />
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
 
