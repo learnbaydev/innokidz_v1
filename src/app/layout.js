@@ -12,8 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "innokidz",
-  description: "Building Future Entrepreneurs",
+  title: "InnoKidz - Future Entrepreneurs Program | AI & Coding for Kids 8-17",
+  description:
+    "Transform your child into an AI-powered entrepreneur. 8-week program teaching kids coding, AI skills, and startup creation. Build real apps, games, and launch actual businesses.",
 };
 
 export default function RootLayout({ children }) {
@@ -23,7 +24,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Theme>{children}</Theme>
-        {/* {children} */}
       </body>
     </html>
   );
