@@ -1,16 +1,18 @@
+"use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Calendar, Code, Star, Users } from "lucide-react";
-import { useDemoModal } from "@/hooks/use-demo-modal";
-import { Link, useLocation } from "wouter";
-import logoPath from "@assets/Frame 1_1753353129966.png";
+import { Menu, X, Calendar, Code, Star, User } from "lucide-react";
+// import { useDemoModal } from "@/hooks/use-demo-modal";
+// import { button } from "@radix-ui/themes";
+
+import logoPath from "../../../public/innokidz-logo.png";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { openModal } = useDemoModal();
-  const [location] = useLocation();
+  // const { openModal } = useDemoModal();
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -28,7 +30,7 @@ export default function Navigation() {
               href="/"
               className="hover:scale-105 transition-transform duration-300 focus:outline-none"
             >
-              <img
+              <Image
                 src={logoPath}
                 alt="InnoKidz"
                 className="h-8 lg:h-10 w-auto"
@@ -36,7 +38,7 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Right side: Navigation + CTA Button and Mobile Menu */}
+          {/* Right side: Navigation + CTA button and Mobile Menu */}
           <div className="flex items-center space-x-6">
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
@@ -58,11 +60,11 @@ export default function Navigation() {
               </Link>
             </div>
 
-            {/* CTA Button and Mobile Menu */}
+            {/* CTA button and Mobile Menu */}
             <div className="flex items-center space-x-4">
-              {/* Desktop CTA Button - Rounded Square */}
-              <Button
-                onClick={openModal}
+              {/* Desktop CTA button - Rounded Square */}
+              <button
+                // onClick={openModal}
                 className="hidden md:inline-flex relative bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 text-white hover:shadow-xl hover:shadow-purple-500/40 font-bold px-6 py-6 text-base transform hover:scale-105 transition-all duration-300 font-poppins overflow-hidden group rounded-2xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/15 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600"></div>
@@ -72,7 +74,7 @@ export default function Navigation() {
                   strokeWidth={2.5}
                 />
                 <span className="relative z-10">Book Free Demo</span>
-              </Button>
+              </button>
 
               {/* Login Text */}
               <div className="hidden md:block">
@@ -81,15 +83,15 @@ export default function Navigation() {
                 </span>
               </div>
 
-              {/* Mobile Menu Button */}
-              <Button
-                variant="ghost"
-                size="icon"
+              {/* Mobile Menu button */}
+              <button
+                // variant="ghost"
+                // size="icon"
                 className="md:hidden text-gray-700 hover:bg-purple-50 ml-1"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -120,10 +122,10 @@ export default function Navigation() {
                 <span>About Us</span>
               </Link>
 
-              {/* Mobile CTA Button - Rounded Square */}
+              {/* Mobile CTA button - Rounded Square */}
               <div className="pt-4 border-t border-gray-200 mt-4">
-                <Button
-                  onClick={openModal}
+                <button
+                  // onClick={openModal}
                   className="w-full relative bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 text-white hover:shadow-xl hover:shadow-purple-500/40 font-bold px-8 py-4 text-base transform hover:scale-105 transition-all duration-300 font-poppins overflow-hidden group rounded-2xl mb-4"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/15 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600"></div>
@@ -133,11 +135,11 @@ export default function Navigation() {
                     strokeWidth={2.5}
                   />
                   <span className="relative z-10">Book Free Demo</span>
-                </Button>
+                </button>
 
                 {/* Mobile Login */}
                 <div className="text-center">
-                  <span className="text-gray-600 hover:text-purple-600 cursor-pointer font-medium text-base font-poppins transition-colors duration-300">
+                  <span className="flex items-center space-x-3 text-gray-600 hover:text-purple-600 transition-all duration-300 text-left py-4 px-5 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 font-semibold text-base font-poppins border border-transparent hover:border-purple-200 group">
                     Login
                   </span>
                 </div>
