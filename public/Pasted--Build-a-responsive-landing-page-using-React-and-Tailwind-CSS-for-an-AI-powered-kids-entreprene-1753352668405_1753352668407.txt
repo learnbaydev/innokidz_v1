@@ -1,0 +1,38 @@
+// Build a responsive landing page using React and Tailwind CSS
+// for an AI-powered kids entrepreneurship program (InnoKidz).
+// Use the following structure and copy.
+
+// ✅ SECTION 1: Hero Section
+// Headline: "Kids Who Code Today, Lead Tomorrow"
+// Subtext: "Turn your child into a young tech creator with the skills to build apps, websites, and launch their own brand — all in just 8 weeks. Live classes, hands-on projects, and personal mentorship included."
+// Buttons: "Start Free Trial" (primary), "Browse Courses" (secondary)
+// Badges above image area: "🎯 Building Future Entrepreneurs", "🧠 AI Ready", "🚀 Future Founders", "📅 8-Week Journey"
+
+// ✅ SECTION 2: Three-Step Journey
+// Section title: "3 Steps. 8 Weeks. 1 Young Founder."
+// Subtext: "From zero coding knowledge to launching a real startup — we guide your child every step of the way."
+// Step Cards:
+// - Step 1 Title: "Build Real Apps & Games"
+//   Step 1 Text: "Learn by doing. Your child creates games, tools, and websites — no boring theory."
+// - Step 2 Title: "Learn AI & Coding Skills"
+//   Step 2 Text: "Explore AI tools like ChatGPT, and master the basics of Python and JavaScript — all tailored for kids."
+// - Step 3 Title: "Launch Their Own Startup"
+//   Step 3 Text: "Create a logo, build a brand page, and present their idea to real mentors. Yes — they’ll pitch like a pro!"
+// Bottom Note: "✨ All three phases included in our guided 8-week program"
+
+// ✅ SECTION 3: Skill Cards Section
+// Title: "Learn to Code. Think Like Founders. Present Like Pros."
+// Subtext: "Real skills for real-world success — all made fun and beginner-friendly."
+// Cards:
+// - Card 1 Title: "Code Real Projects"
+//   Card 1 Text: "Build websites, games, and simple apps using Python and JavaScript."
+//   Bullet points: "• Web Development", "• Game Design"
+// - Card 2 Title: "Think Like Founders"
+//   Card 2 Text: "Develop creativity, problem-solving, and decision-making skills for the real world."
+//   Bullet points: "• Design Thinking", "• Creative Logic"
+// - Card 3 Title: "Team Up & Pitch"
+//   Card 3 Text: "Collaborate with peers, create presentations, and showcase your child’s product ideas confidently."
+//   Bullet points: "• Team Projects", "• Public Speaking & Demos"
+
+// Page should be mobile-responsive, minimal, and clean.
+// Do not use animations, just structure the layout and content properly.

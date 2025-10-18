@@ -1,0 +1,43 @@
+You are a professional React + Tailwind UI/UX developer.
+
+Design a **Hero Section** for a kids-focused entrepreneurship program website. Refer to the attached visual sample design.
+
+📌 Brand Concept:
+This is an 8-week program for kids to learn entrepreneurship through ideation, coding (vibe coding), AI, and marketing — ultimately launching their own products.
+
+🖥️ What to Build:
+- A **2-column layout** with:
+  - **Left side** (Text content):
+    - Badge at top: “500+ Young Entrepreneurs” (rounded, pill-style, green dot)
+    - Heading: “Kids Who Code & Create Rule Tomorrow” (bold with 2-line split, highlight “Code & Create” in a different color — e.g. orange/yellow)
+    - Subheading: “Build AI-powered startups. Launch real products. Generate actual revenue.”
+    - Supporting line: “From idea to entrepreneur in just 8 weeks” (in blue)
+    - Two CTA buttons:
+      - “Start Your Journey” (bright pink/orange gradient with hover effect)
+      - “See Success Stories” (transparent with border, on hover: light fill)
+    - Below CTAs: 3 success metrics (₹50L+ Revenue Generated, 500+ Young CEOs, 8 Weeks Only) in a row — use icon + bold number + label
+
+  - **Right side** (Graphic section):
+    - Rounded box or card with a circular progress visual showing:
+      - “8 Weeks to Entrepreneur”
+      - 4 labels around it: Ideate → Build → Promote → Launch (each with matching icon)
+      - A small badge on top-right: “AI Ready”
+      - Bottom-right badge: “Future CEO”
+
+🎨 Design Guidelines:
+- Font: Use clean modern fonts like Poppins or Nunito
+- Colors:
+  - Background: Dark gradient (deep purple → indigo)
+  - Headline highlight: #FBBF24 or #FFB800 (yellow/orange)
+  - CTA Gradient: Pink (#ec4899) to Orange (#f97316)
+- Font Size:
+  - Main headline: 40px+
+  - Subheading: 18–20px
+  - CTA: Bold, 16–18px
+- Spacing: Adequate padding (min 48px), align center on mobile
+- Buttons: Fully rounded (2xl), with hover transitions
+- Icons: Use Heroicons or simple SVGs (rocket, brain, gear, etc)
+
+📱 Fully responsive:
+- On mobile: Stack left/right vertically
+- Buttons to be full-width un
