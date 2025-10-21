@@ -187,7 +187,7 @@ export default function LearningTrackSection() {
               <button
                 key={week}
                 onClick={() => setSelectedWeek(week)}
-                className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
+                className={`px-4 py-1 rounded-xl font-bold text-lg transition-all duration-300 ${
                   selectedWeek === week
                     ? `bg-gradient-to-r ${weeklyProgram[week].gradient} text-white shadow-lg`
                     : "text-gray-600 hover:text-gray-900 hover:bg-white"
