@@ -132,20 +132,23 @@ export default function Footer() {
             <p className="text-purple-200 mb-4">
               Get updates on new batches and coding tips for young innovators.
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex">
+            <form
+              onSubmit={handleNewsletterSubmit}
+              className="flex items-center rounded-full w-[80px] h-[40px]"
+            >
               <input
                 type="email"
-                placeholder="Enter email"
+                placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 rounded-l-full bg-white/10 backdrop-blur-sm text-white placeholder-purple-300 border-0 focus:ring-2 focus:ring-primary-purple"
+                className="flex-1 h-full bg-white/10 text-white placeholder-white/40 rounded-l-full px-4 outline-none focus:ring-2 focus:ring-[#5f6fff]"
                 required
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-primary-purple to-electric-pink px-6 py-3 rounded-r-full hover:shadow-lg transition-all duration-300 border-0"
+                className="h-full aspect-square bg-[#2d9eff] hover:bg-[#2489e8] transition-all duration-300 rounded-r-full flex items-center justify-center"
               >
-                <Send size={16} />
+                <Send size={18} color="white" />
               </button>
             </form>
           </div>
