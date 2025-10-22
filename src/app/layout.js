@@ -1,8 +1,9 @@
 import { Theme } from "@radix-ui/themes";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
-import Footer from "./components/Footer";
-import Navigation from "./components/navigation";
 import "./globals.css";
+import Navigation from "./components/navigation";
+import Footer from "./components/Footer";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={` ${poppins.variable} ${geistSans.variable} ${geistMono.variable}  antialiased`}
+        className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navigation />
         <Theme>{children}</Theme>
