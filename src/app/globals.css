@@ -428,9 +428,6 @@ body {
 .bg-bg-darker {
   background-color: var(--bg-purple-dark);
 }
-/* .border-border-dark {
-  border-color: var(--bg-card);
-} */
 
 /* Icon Styles */
 .icon-accent {
@@ -525,27 +522,6 @@ body {
     linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
 }
-
-/* @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply font-inter antialiased;
-    background: var(--gradient-cosmic);
-    color: var(--text-light);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-nunito;
-  }
-} */
 
 @layer utilities {
   .text-primary-purple {

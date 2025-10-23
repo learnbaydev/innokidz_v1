@@ -1,10 +1,12 @@
+"use client";
+import { useState } from "react";
 import { Rocket } from "lucide-react";
 import Image from "next/image";
 import heroImage from "../../../public/hero-section-four-kids.png";
-// import { useDemoModal } from "@/hooks/use-demo-modal";
 
 export default function HeroSection() {
-  // const { openModal } = useDemoModal();
+  // State to manage form visibility
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 text-white relative overflow-hidden">
@@ -21,50 +23,49 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-6">
           {/* Left Content */}
-          <div className="order-1 lg:order-1 space-y-6 sm:space-y-8 flex flex-col justify-center">
-            {/* Dark Badge - Mobile Optimized */}
+          <div className="space-y-6 sm:space-y-8 flex flex-col justify-center">
+            {/* Dark Badge */}
             <div className="inline-flex items-center bg-black/30 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 shadow-lg max-w-fit hover:scale-105 transition-all duration-300 hover:bg-black/40">
               <Rocket className="w-5 h-5 text-white/90 mr-3" />
               <span className="text-white/95 text-base font-semibold">
-                <span className="hidden sm:inline">
-                  Building Future Entrepreneurs
-                </span>
-                <span className="sm:hidden">Future Entrepreneurs</span>
+                Building Future Entrepreneurs
               </span>
             </div>
 
-            {/* Main Headline - Mobile Optimized */}
+            {/* Main Headline */}
             <div>
               <h1 className="font-poppins font-black text-[2.6rem] sm:text-4xl lg:text-5xl xl:text-6xl leading-[1.1] mb-4 sm:mb-6">
-                <span className="text-white block mb-1 sm:mb-2">Kids Who</span>
-                <span className="text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text block mb-1 sm:mb-2">
+                <span className="text-white block">Kids Who</span>
+                <span className="text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text block">
                   Code & Create
                 </span>
                 <span className="text-white block">Rule Tomorrow</span>
               </h1>
 
-              {/* Subheading - Mobile Optimized */}
               <p className="text-[0.9375rem] sm:text-lg lg:text-xl text-white/85 font-medium leading-relaxed max-w-xl font-poppins">
                 Turn your child into an AI entrepreneur building real startups.
               </p>
             </div>
 
-            {/* CTA Buttons - Mobile Optimized */}
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-2 sm:pt-4">
-              <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-12 py-3 sm:py-5 rounded-2xl font-bold text-base sm:text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform glow-pink font-poppins">
+              {/* Button 1 - Opens Form */}
+              <button
+                onClick={() => setIsFormOpen(true)}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-12 py-3 sm:py-5 rounded-2xl font-bold text-base sm:text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform glow-pink font-poppins"
+              >
                 Learn More
               </button>
+
+              {/* Button 2 - Scrolls to Curriculum */}
               <button
-                // onClick={() => {
-                //   const curriculumSection =
-                //     document.getElementById("curriculum");
-                //   if (curriculumSection) {
-                //     curriculumSection.scrollIntoView({
-                //       behavior: "smooth",
-                //       block: "start",
-                //     });
-                //   }
-                // }}
+                onClick={() => {
+                  const section = document.getElementById("curriculum");
+                  section?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
                 className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-6 sm:px-12 py-3 sm:py-5 rounded-2xl font-bold text-base sm:text-xl hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:glow-blue font-poppins"
               >
                 View Program
@@ -72,50 +73,56 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Content - Hero Image */}
-          <div className="order-2 lg:order-2 flex items-center justify-center">
+          {/* Right Image */}
+          <div className="flex items-center justify-center">
             <div className="relative w-full max-w-md sm:max-w-2xl mx-auto p-6 sm:p-8">
-              {/* Background Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20 rounded-3xl blur-3xl"></div>
-
-              {/* Main Image Container */}
-              <div className="relative z-10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-4 border-2 border-purple-400/30 shadow-2xl hover:shadow-purple-400/20 transition-all duration-500">
-                {/* Hero Image - Fixed sizing */}
+              <div className="relative z-10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-4 border-2 border-purple-400/30 shadow-2xl">
                 <Image
                   src={heroImage}
                   alt="Young entrepreneurs learning coding and AI skills"
                   className="w-full h-auto rounded-2xl shadow-xl"
-                  loading="eager"
-                  decoding="async"
-                  style={{
-                    maxHeight: "500px",
-                    objectFit: "contain",
-                  }}
                 />
-
-                {/* Floating Badges with Unified Blink Animation */}
-                <div className="absolute -top-4 -left-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full px-5 py-3 shadow-xl animate-pulse">
-                  <span className="text-white font-bold text-base font-poppins">
-                    AI Ready
-                  </span>
-                </div>
-
-                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full px-5 py-3 shadow-xl animate-pulse">
-                  <span className="text-white font-bold text-base font-poppins">
-                    Future Founders
-                  </span>
-                </div>
-
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-7 py-3 shadow-xl animate-pulse">
-                  <span className="text-black font-bold text-base font-poppins">
-                    4 Week Journey
-                  </span>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* ✅ Simple Modal / Form */}
+      {isFormOpen && (
+        <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full text-gray-800 relative">
+            <button
+              onClick={() => setIsFormOpen(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl font-bold"
+            >
+              ✕
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-center text-purple-700">
+              Get More Info
+            </h2>
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+              />
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
