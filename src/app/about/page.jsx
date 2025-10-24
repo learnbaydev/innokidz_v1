@@ -103,8 +103,8 @@ export default function page() {
                 Every Child is Creative
               </h3>
               <p className="text-slate-600 leading-relaxed">
-                We believe creativity isn't limited to art or music. Every child
-                can think creatively about technology, business, and
+                We believe creativity isn&apos;t limited to art or music. Every
+                child can think creatively about technology, business, and
                 problem-solving.
               </p>
             </div>
@@ -161,15 +161,15 @@ export default function page() {
               </div>
 
               <p className="text-lg lg:text-xl text-slate-700 leading-relaxed mb-6">
-                We're living through the biggest technological revolution in
-                human history. AI and automation are changing how we work,
+                We&apos;re living through the biggest technological revolution
+                in human history. AI and automation are changing how we work,
                 create, and solve problems.
               </p>
 
               <p className="text-lg lg:text-xl text-slate-700 leading-relaxed mb-6">
-                Traditional education isn't keeping up. Most schools still teach
-                skills from the industrial age, while the future belongs to
-                creators, innovators, and entrepreneurs.
+                Traditional education isn&apos;t keeping up. Most schools still
+                teach skills from the industrial age, while the future belongs
+                to creators, innovators, and entrepreneurs.
               </p>
 
               <p className="text-lg lg:text-xl text-slate-700 leading-relaxed font-semibold">

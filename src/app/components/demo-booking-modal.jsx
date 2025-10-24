@@ -95,7 +95,7 @@ export default function InnoKidzForm({ open, onOpenChange }) {
               Join InnoKidz Program!
             </h1>
             <p className="text-white/90 text-lg">
-              Start your child's entrepreneurship journey today
+              Start your Child&apos;s entrepreneurship journey today
             </p>
           </div>
 
@@ -115,7 +115,8 @@ export default function InnoKidzForm({ open, onOpenChange }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Child's Full Name <span className="text-red-500">*</span>
+                    Child&apos;s Full Name{" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
