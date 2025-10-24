@@ -46,16 +46,16 @@ export default function CertificateComponent() {
                     desc: "A certificate from Innokidz, a trusted name in children's AI education and innovation",
                   },
                   {
-                    title: "Portfolio Builder",
-                    desc: "Adds value to your child's academic profile and future applications",
+                    title: "Digital Feature",
+                    desc: "Opportunity for your child to be featured on Innokidz's digital platforms",
                   },
                   {
                     title: "Skill Validation",
                     desc: "Confirms your child's proficiency in using AI tools for learning and creativity",
                   },
                   {
-                    title: "Digital Feature",
-                    desc: "Opportunity for your child to be featured on Innokidz's digital platforms",
+                    title: "Portfolio Builder",
+                    desc: "Adds value to your child's academic profile and future applications",
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
@@ -83,10 +83,6 @@ export default function CertificateComponent() {
                   </div>
                 ))}
               </div>
-
-              <button className="w-full mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg">
-                Get Your Certificate
-              </button>
             </div>
           </div>
         </div>
