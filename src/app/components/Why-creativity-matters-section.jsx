@@ -115,7 +115,7 @@ export default function WhyCreativityMattersSection() {
                 </span>
               </div>
               <p className="text-slate-600 text-base font-medium">
-                Common concerns every parent has about their child's future
+                Common concerns every parent has about their child&apos;s future
               </p>
             </div>
 

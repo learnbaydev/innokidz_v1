@@ -43,7 +43,7 @@ export default function TestimonialsCompleteSection() {
             What Parents & Kids Are Saying
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-poppins">
-            Real stories from families who've transformed their futures
+            Real stories from families who&#39;ve transformed their futures
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function TestimonialsCompleteSection() {
 
                 {/* Testimonial content */}
                 <p className="text-gray-700 leading-relaxed font-poppins italic">
-                  "{testimonial.content}"
+                  {testimonial.content}
                 </p>
 
                 {/* Author */}

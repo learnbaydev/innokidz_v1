@@ -7,15 +7,21 @@ import LearningTrackSection from "./components/Learning-track-section";
 import TestimonialsCompleteSection from "./components/Testimonials-complete-section";
 import FinalCTASection from "./components/Final-cta-section";
 
+import CertificateSection from "./components/CertificateSection";
+import { Hand } from "lucide-react";
+import HandsOnProject from "./components/HandsOnProject";
+
 export default function Home() {
   return (
     <>
       {" "}
       <HeroSection />
+      <HandsOnProject />
       <ThreeStepJourneySection />
       <SkillsCombinationSection />
       <WhyCreativityMattersSection />
       <LearningTrackSection />
+      <CertificateSection />
       <TestimonialsCompleteSection />
       <FinalCTASection />
     </>
