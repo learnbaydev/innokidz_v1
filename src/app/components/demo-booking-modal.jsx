@@ -1,432 +1,287 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useState, useEffect } from "react";
 import {
   X,
+  Star,
   User,
   Phone,
-  Mail,
   Heart,
   Monitor,
-  CheckCircle,
-  Star,
+  ChevronDown,
 } from "lucide-react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-// import { useToast } from "@/hooks/use-toast";
-
-// const formSchema = z.object({
-//   childName: z.string().min(2, 'Child name must be at least 2 characters'),
-//   ageOrDob: z.string().min(1, 'Please provide age or date of birth'),
-//   classGrade: z.string().min(1, 'Please provide class/grade'),
-//   schoolName: z.string().min(2, 'School name must be at least 2 characters'),
-//   whatsappNumber: z.string().min(10, 'Please provide a valid WhatsApp number'),
-//   parentEmail: z.string().email('Please provide a valid email address'),
-//   interests: z.array(z.string()).optional(),
-//   learningMode: z.enum(['online', 'offline', 'both']).optional(),
-// });
-
-// type FormData = z.infer<typeof formSchema>;
-
-const interestOptions = [
-  "Learning AI tools like ChatGPT, Canva, etc.",
-  "Creating YouTube videos or Reels",
-  "Building websites or apps",
-  "Designing logos, videos & posts",
-  "Starting a brand or product",
-  "Learning public speaking & leadership",
-];
-
-export default function DemoBookingModal({ isOpen, onClose }) {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  // const { toast } = useToast();
-  const queryClient = useQueryClient();
-
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      childName: "",
-      ageOrDob: "",
-      classGrade: "",
-      schoolName: "",
-      whatsappNumber: "",
-      parentEmail: "",
-      interests: undefined,
-      learningMode: undefined,
-    },
+export default function InnoKidzForm({ open, onOpenChange }) {
+  const [formData, setFormData] = useState({
+    childName: "",
+    age: "",
+    classGrade: "",
+    schoolName: "",
+    whatsapp: "",
+    email: "",
+    interest: "",
+    learningMode: "",
   });
 
-  const createBookingMutation = useMutation({
-    mutationFn: async (data) => {
-      const response = await fetch("/api/demo-booking", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
-      }
-      return response.json();
-    },
-    onSuccess: () => {
-      setIsSubmitted(true);
-      // toast({
-      //   title: "Registration Successful!",
-      //   description:
-      //     "Welcome to InnoKidz! We'll contact you soon with program details.",
-      // });
-      queryClient.invalidateQueries({ queryKey: ["/api/demo-booking"] });
-    },
-    onError: (error) => {
-      // toast({
-      //   title: "Registration Failed",
-      //   description: "Please try again or contact support.",
-      //   variant: "destructive",
-      // });
-    },
-  });
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-  const handleFormSubmit = (data) => {
-    createBookingMutation.mutate(data);
+  const handleSubmit = () => {
+    console.log("Form submitted:", formData);
+    alert("Successfully joined the program!");
+    onOpenChange(false);
   };
 
   const handleClose = () => {
-    setIsSubmitted(false);
-    form.reset();
-    onClose();
+    onOpenChange(false);
   };
 
-  if (!isOpen) return null;
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape" && open) {
+        handleClose();
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [open]);
+
+  if (!open) return null;
 
   return (
-    <div
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-2 sm:p-4"
-      style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
-    >
-      <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden border border-gray-200 flex flex-col">
-        {/* Header */}
-        <div className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 p-6 rounded-t-2xl">
-          <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+        onClick={handleClose}
+      />
 
-          <div className="text-center text-white">
-            <div className="flex justify-center mb-3">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <Star className="w-6 h-6 text-yellow-300" />
+      {/* Modal */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+        <div
+          className="w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto max-h-[80vh] flex flex-col"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="bg-gradient-to-r from-purple-600 via-purple-500 to-blue-500 p-8 text-center relative flex-shrink-0">
+            <button
+              onClick={handleClose}
+              className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <div className="flex justify-center mb-4">
+              <div className="bg-blue-400/30 p-3 rounded-full">
+                <Star
+                  className="text-yellow-300"
+                  size={32}
+                  fill="currentColor"
+                />
               </div>
             </div>
-            <h2 className="text-2xl font-bold mb-2">Join InnoKidz Program!</h2>
-            <p className="text-white/90 text-base">
+            <h1 className="text-3xl font-bold text-white mb-2">
+              Join InnoKidz Program!
+            </h1>
+            <p className="text-white/90 text-lg">
               Start your child's entrepreneurship journey today
             </p>
           </div>
-        </div>
 
-        {/* Form Content */}
-        <div className="flex-1 overflow-y-auto p-6 sm:p-8 bg-gray-50">
-          {isSubmitted ? (
-            <div className="text-center py-12 bg-white rounded-xl">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-12 h-12 text-green-600" />
+          {/* Form Content - Scrollable */}
+          <div className="p-6 overflow-y-auto flex-1">
+            {/* About Your Child Section */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-blue-100 p-2 rounded-lg">
+                  <User className="text-blue-600" size={24} />
+                </div>
+                <h2 className="text-xl font-semibold text-gray-800">
+                  About Your Child
+                </h2>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                Registration Successful! 🎉
-              </h3>
-              <p className="text-gray-600 mb-8 text-lg max-w-md mx-auto">
-                Welcome to InnoKidz! We'll contact you within 24 hours with
-                program details and next steps.
-              </p>
-              <Button
-                onClick={handleClose}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-10 py-4 text-lg font-semibold rounded-xl shadow-lg"
-              >
-                Awesome!
-              </Button>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Child's Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter child's full name"
+                    value={formData.childName}
+                    onChange={(e) => handleChange("childName", e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Age / Date of Birth <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g., 11 years or 15/02/2014"
+                    value={formData.age}
+                    onChange={(e) => handleChange("age", e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Class / Grade <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g., 6th Grade, Class 10"
+                    value={formData.classGrade}
+                    onChange={(e) => handleChange("classGrade", e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    School Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter school name"
+                    value={formData.schoolName}
+                    onChange={(e) => handleChange("schoolName", e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+              </div>
             </div>
-          ) : (
-            <form
-              onSubmit={form.handleSubmit(handleFormSubmit)}
-              className="space-y-5"
+
+            {/* Parent Contact Section */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-green-100 p-2 rounded-lg">
+                  <Phone className="text-green-600" size={24} />
+                </div>
+                <h2 className="text-xl font-semibold text-gray-800">
+                  Parent Contact
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    WhatsApp Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                    value={formData.whatsapp}
+                    onChange={(e) => handleChange("whatsapp", e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="parent@email.com"
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* What Excites Your Child Section */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-pink-100 p-2 rounded-lg">
+                  <Heart className="text-pink-600" size={24} />
+                </div>
+                <h2 className="text-xl font-semibold text-gray-800">
+                  What excites your child most?
+                </h2>
+              </div>
+
+              <div className="relative">
+                <select
+                  value={formData.interest}
+                  onChange={(e) => handleChange("interest", e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white appearance-none cursor-pointer text-gray-700"
+                >
+                  <option value="" disabled>
+                    Choose your child&apos;s main interest
+                  </option>
+                  <option value="technology">Technology & Coding</option>
+                  <option value="business">Business & Entrepreneurship</option>
+                  <option value="arts">Arts & Creativity</option>
+                  <option value="science">Science & Innovation</option>
+                </select>
+                <ChevronDown
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                  size={20}
+                />
+              </div>
+            </div>
+
+            {/* Preferred Learning Mode Section */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-purple-100 p-2 rounded-lg">
+                  <Monitor className="text-purple-600" size={24} />
+                </div>
+                <h2 className="text-xl font-semibold text-gray-800">
+                  Preferred Learning Mode
+                </h2>
+              </div>
+
+              <div className="relative">
+                <select
+                  value={formData.learningMode}
+                  onChange={(e) => handleChange("learningMode", e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white appearance-none cursor-pointer text-gray-700"
+                >
+                  <option value="" disabled>
+                    Choose learning mode
+                  </option>
+                  <option value="online">Online Learning</option>
+                  <option value="offline">Offline Learning</option>
+                  <option value="hybrid">Hybrid (Both)</option>
+                </select>
+                <ChevronDown
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                  size={20}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Submit Button - Fixed at bottom */}
+          <div className="p-6 pt-0 flex-shrink-0 bg-white border-t border-gray-100">
+            <button
+              onClick={handleSubmit}
+              className="w-full bg-gradient-to-r from-purple-600 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg flex items-center justify-center gap-2"
             >
-              {/* Section 1: Child Information */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
-                    <User className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    About Your Child
-                  </h3>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="childName"
-                      className="text-sm font-medium text-gray-900"
-                    >
-                      Child's Full Name *
-                    </Label>
-                    <Input
-                      id="childName"
-                      {...form.register("childName")}
-                      placeholder="Enter child's full name"
-                      className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
-                    />
-                    {form.formState.errors.childName && (
-                      <p className="text-red-500 text-xs">
-                        {form.formState.errors.childName.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="ageOrDob"
-                      className="text-sm font-medium text-gray-900"
-                    >
-                      Age / Date of Birth *
-                    </Label>
-                    <Input
-                      id="ageOrDob"
-                      {...form.register("ageOrDob")}
-                      placeholder="e.g., 11 years or 15/02/2014"
-                      className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
-                    />
-                    {form.formState.errors.ageOrDob && (
-                      <p className="text-red-500 text-xs">
-                        {form.formState.errors.ageOrDob.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="classGrade"
-                      className="text-sm font-medium text-gray-900"
-                    >
-                      Class / Grade *
-                    </Label>
-                    <Input
-                      id="classGrade"
-                      {...form.register("classGrade")}
-                      placeholder="e.g., 6th Grade, Class 10"
-                      className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
-                    />
-                    {form.formState.errors.classGrade && (
-                      <p className="text-red-500 text-xs">
-                        {form.formState.errors.classGrade.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="schoolName"
-                      className="text-sm font-medium text-gray-900"
-                    >
-                      School Name *
-                    </Label>
-                    <Input
-                      id="schoolName"
-                      {...form.register("schoolName")}
-                      placeholder="Enter school name"
-                      className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
-                    />
-                    {form.formState.errors.schoolName && (
-                      <p className="text-red-500 text-xs">
-                        {form.formState.errors.schoolName.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Section 2: Parent Contact */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
-                    <Phone className="w-5 h-5 text-green-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Parent Contact
-                  </h3>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="whatsappNumber"
-                      className="text-sm font-medium text-gray-900"
-                    >
-                      WhatsApp Number *
-                    </Label>
-                    <Input
-                      id="whatsappNumber"
-                      type="tel"
-                      {...form.register("whatsappNumber")}
-                      placeholder="+91 98765 43210"
-                      className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
-                    />
-                    {form.formState.errors.whatsappNumber && (
-                      <p className="text-red-500 text-xs">
-                        {form.formState.errors.whatsappNumber.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="parentEmail"
-                      className="text-sm font-medium text-gray-900"
-                    >
-                      Email Address *
-                    </Label>
-                    <Input
-                      id="parentEmail"
-                      type="email"
-                      {...form.register("parentEmail")}
-                      placeholder="parent@email.com"
-                      className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
-                    />
-                    {form.formState.errors.parentEmail && (
-                      <p className="text-red-500 text-xs">
-                        {form.formState.errors.parentEmail.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Section 3: Interests */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center mr-3">
-                    <Heart className="w-5 h-5 text-pink-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    What excites your child most?
-                  </h3>
-                </div>
-
-                <Select
-                  onValueChange={(value) => form.setValue("interests", [value])}
-                >
-                  <SelectTrigger className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200">
-                    <SelectValue
-                      placeholder="Choose your child's main interest"
-                      className="text-gray-900"
-                    />
-                  </SelectTrigger>
-                  <SelectContent className="bg-white border border-gray-300 rounded-lg shadow-xl z-[10000] max-h-60 overflow-y-auto">
-                    {interestOptions.map((interest) => (
-                      <SelectItem
-                        key={interest}
-                        value={interest}
-                        className="text-gray-900 hover:bg-purple-50 focus:bg-purple-50 cursor-pointer px-3 py-2"
-                      >
-                        {interest}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {form.formState.errors.interests && (
-                  <p className="text-red-500 text-xs mt-2">
-                    {form.formState.errors.interests.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Learning Mode Section */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
-                    <Monitor className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Preferred Learning Mode
-                  </h3>
-                </div>
-
-                <Select
-                  onValueChange={(value) =>
-                    form.setValue("learningMode", value)
-                  }
-                >
-                  <SelectTrigger className="w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200">
-                    <SelectValue
-                      placeholder="Choose learning mode"
-                      className="text-gray-900"
-                    />
-                  </SelectTrigger>
-                  <SelectContent className="bg-white border border-gray-300 rounded-lg shadow-xl z-[10000] max-h-60 overflow-y-auto">
-                    <SelectItem
-                      value="online"
-                      className="text-gray-900 hover:bg-purple-50 focus:bg-purple-50 cursor-pointer px-3 py-2"
-                    >
-                      Online (30-min weekday classes)
-                    </SelectItem>
-                    <SelectItem
-                      value="offline"
-                      className="text-gray-900 hover:bg-purple-50 focus:bg-purple-50 cursor-pointer px-3 py-2"
-                    >
-                      Offline Weekend Workshops
-                    </SelectItem>
-                    <SelectItem
-                      value="both"
-                      className="text-gray-900 hover:bg-purple-50 focus:bg-purple-50 cursor-pointer px-3 py-2"
-                    >
-                      Both (Flexible combination)
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-                {form.formState.errors.learningMode && (
-                  <p className="text-red-500 text-xs mt-2">
-                    {form.formState.errors.learningMode.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-4">
-                <Button
-                  type="submit"
-                  disabled={createBookingMutation.isPending}
-                  className="w-full h-14 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 hover:from-purple-700 hover:via-blue-700 hover:to-indigo-700 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
-                >
-                  {createBookingMutation.isPending ? (
-                    <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-3"></div>
-                      Joining Program...
-                    </div>
-                  ) : (
-                    <div className="flex items-center justify-center">
-                      <Star className="w-5 h-5 mr-2" />
-                      Join the Program
-                    </div>
-                  )}
-                </Button>
-              </div>
-            </form>
-          )}
+              <Star size={20} />
+              Join the Program
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -3,10 +3,16 @@ import { useState } from "react";
 import { Rocket } from "lucide-react";
 import Image from "next/image";
 import heroImage from "../../../public/hero-section-four-kids.png";
+import InnoKidzForm from "../components/demo-booking-modal";
 
 export default function HeroSection() {
   // State to manage form visibility
   const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsFormOpen(true);
+  };
+  // ----------------------z--------------------
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 text-white relative overflow-hidden">
@@ -51,11 +57,13 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-2 sm:pt-4">
               {/* Button 1 - Opens Form */}
               <button
-                onClick={() => setIsFormOpen(true)}
+                onClick={handleOpen}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-12 py-3 sm:py-5 rounded-2xl font-bold text-base sm:text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform glow-pink font-poppins"
               >
                 Learn More
               </button>
+
+              <InnoKidzForm open={isFormOpen} onOpenChange={setIsFormOpen} />
 
               {/* Button 2 - Scrolls to Curriculum */}
               <button
@@ -88,41 +96,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      {/* ✅ Simple Modal / Form */}
-      {isFormOpen && (
-        <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full text-gray-800 relative">
-            <button
-              onClick={() => setIsFormOpen(false)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl font-bold"
-            >
-              ✕
-            </button>
-            <h2 className="text-2xl font-bold mb-4 text-center text-purple-700">
-              Get More Info
-            </h2>
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
-              />
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
