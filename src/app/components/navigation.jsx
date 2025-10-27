@@ -125,11 +125,19 @@ export default function Navigation() {
               <div className="pt-4 border-t border-gray-200 mt-4">
                 <button
                   // onClick={openModal}
-                  className="w-full relative bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 text-white hover:shadow-xl hover:shadow-purple-500/40 font-bold px-8 py-4 text-base transform hover:scale-105 transition-all duration-300 font-poppins overflow-hidden group rounded-2xl mb-4"
+                  className="w-full relative bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 
+               text-white hover:shadow-xl hover:shadow-purple-500/40 font-bold px-8 py-4 
+               text-base transform hover:scale-105 transition-all duration-300 font-poppins 
+               overflow-hidden group rounded-2xl mb-4 flex items-center justify-center gap-2"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/15 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600"></div>
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/15 to-white/0 
+                    translate-x-[-100%] group-hover:translate-x-[100%] 
+                    transition-transform duration-600"
+                  ></div>
+
                   <Calendar
-                    className="mr-2.5 relative z-10"
+                    className="relative z-10"
                     size={20}
                     strokeWidth={2.5}
                   />
