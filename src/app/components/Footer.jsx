@@ -47,8 +47,8 @@ export default function Footer() {
             </div>
             <p className="text-purple-200 text-lg mb-6 leading-relaxed">
               Empowering kids aged 8-17 to become future entrepreneurs through
-              AI, coding, and real-world startup skills. Building tomorrow's
-              innovators today.
+              AI, coding, and real-world startup skills. Building
+              tomorrow&apos;s innovators today.
             </p>
             <div className="flex space-x-4">
               <button
