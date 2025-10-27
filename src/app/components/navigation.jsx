@@ -68,7 +68,7 @@ export default function Navigation() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/15 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600"></div>
                 <Calendar
-                  className="mr-2 relative z-10"
+                  className="mr-2 mt-1 relative z-10"
                   size={18}
                   strokeWidth={2.5}
                 />
