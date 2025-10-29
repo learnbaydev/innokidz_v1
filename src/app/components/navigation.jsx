@@ -84,8 +84,6 @@ export default function Navigation() {
 
               {/* Mobile Menu button */}
               <button
-                // variant="ghost"
-                // size="icon"
                 className="md:hidden text-gray-700 hover:bg-purple-50 ml-1"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >

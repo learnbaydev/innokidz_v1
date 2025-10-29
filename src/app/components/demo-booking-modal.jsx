@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import {
   X,
@@ -21,69 +22,55 @@ export default function InnoKidzForm({ open, onOpenChange }) {
     learningMode: "",
   });
 
-  const handleChange = (field, value) => {
+  const handleChange = (field, value) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
-  };
 
   const handleSubmit = () => {
-    console.log("Form submitted:", formData);
     alert("Successfully joined the program!");
     onOpenChange(false);
   };
 
-  const handleClose = () => {
-    onOpenChange(false);
-  };
+  const handleClose = () => onOpenChange(false);
 
-  // Prevent body scroll when modal is open
+  // disable body scroll when modal is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
+    document.body.style.overflow = open ? "hidden" : "unset";
+    return () => (document.body.style.overflow = "unset");
   }, [open]);
 
-  // Close on Escape key
+  // close on escape
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === "Escape" && open) {
-        handleClose();
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    const esc = (e) => e.key === "Escape" && open && handleClose();
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
   }, [open]);
 
   if (!open) return null;
 
   return (
     <>
-      {/* Backdrop */}
+      {/* backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/40 backdrop-blur-lg z-51"
         onClick={handleClose}
       />
-
-      {/* Modal */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+      {/* modal */}
+      <div className="fixed inset-0 flex items-center justify-center z-52 p-4 mt-12">
         <div
-          className="w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto max-h-[80vh] flex flex-col"
+          className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Header */}
-          <div className="bg-gradient-to-r from-purple-600 via-purple-500 to-blue-500 p-8 text-center relative flex-shrink-0">
+          {/* header */}
+          <div className="bg-gradient-to-r from-[#6a11cb] to-[#2575fc] p-8 text-center relative flex-shrink-0">
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
             >
               <X size={24} />
             </button>
+
             <div className="flex justify-center mb-4">
-              <div className="bg-blue-400/30 p-3 rounded-full">
+              <div className="bg-white/20 p-3 rounded-full">
                 <Star
                   className="text-yellow-300"
                   size={32}
@@ -91,191 +78,145 @@ export default function InnoKidzForm({ open, onOpenChange }) {
                 />
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">
+            <h1 className="text-3xl font-bold text-white">
               Join InnoKidz Program!
             </h1>
-            <p className="text-white/90 text-lg">
-              Start your Child&apos;s entrepreneurship journey today
+            <p className="text-white/90 text-lg mt-1">
+              Start your child&apos;s entrepreneurship journey today
             </p>
           </div>
 
-          {/* Form Content - Scrollable */}
-          <div className="p-6 overflow-y-auto flex-1">
-            {/* About Your Child Section */}
-            <div className="bg-gray-50 rounded-xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-6">
+          {/* content */}
+          <div className="p-6 overflow-y-auto flex-1 space-y-6">
+            {/* /* about child */}
+            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-5">
                 <div className="bg-blue-100 p-2 rounded-lg">
                   <User className="text-blue-600" size={24} />
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-gray-800">
                   About Your Child
                 </h2>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Child&apos;s Full Name{" "}
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter child's full name"
-                    value={formData.childName}
-                    onChange={(e) => handleChange("childName", e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Age / Date of Birth <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g., 11 years or 15/02/2014"
-                    value={formData.age}
-                    onChange={(e) => handleChange("age", e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Class / Grade <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g., 6th Grade, Class 10"
-                    value={formData.classGrade}
-                    onChange={(e) => handleChange("classGrade", e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    School Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter school name"
-                    value={formData.schoolName}
-                    onChange={(e) => handleChange("schoolName", e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-md text-black">
+                <InputField
+                  label="Child's Full Name"
+                  placeholder="Enter child's full name"
+                  required
+                  value={formData.childName}
+                  onChange={(e) => handleChange("childName", e.target.value)}
+                />
+                <InputField
+                  label="Age / Date of Birth"
+                  placeholder="e.g., 11 years or 15/02/2014"
+                  required
+                  value={formData.age}
+                  onChange={(e) => handleChange("age", e.target.value)}
+                />
+                <InputField
+                  label="Class / Grade"
+                  placeholder="e.g., 6th Grade, Class 10"
+                  required
+                  value={formData.classGrade}
+                  onChange={(e) => handleChange("classGrade", e.target.value)}
+                />
+                <InputField
+                  label="School Name"
+                  placeholder="Enter school name"
+                  required
+                  value={formData.schoolName}
+                  onChange={(e) => handleChange("schoolName", e.target.value)}
+                />
               </div>
             </div>
 
-            {/* Parent Contact Section */}
-            <div className="bg-gray-50 rounded-xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-6">
+            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-5">
                 <div className="bg-green-100 p-2 rounded-lg">
                   <Phone className="text-green-600" size={24} />
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-gray-800">
                   Parent Contact
                 </h2>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    WhatsApp Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+91 98765 43210"
-                    value={formData.whatsapp}
-                    onChange={(e) => handleChange("whatsapp", e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="parent@email.com"
-                    value={formData.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-md text-black">
+                <InputField
+                  label="WhatsApp Number"
+                  placeholder="e.g., 9876543210"
+                  required
+                  type="tel"
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  title="Enter a 10 digit mobile number"
+                  value={formData.whatsapp}
+                  onChange={(e) =>
+                    handleChange(
+                      "whatsapp",
+                      e.target.value.replace(/\D/g, "").slice(0, 10)
+                    )
+                  }
+                />
+                <InputField
+                  label="Email Address"
+                  placeholder="parent@email.com"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                />
               </div>
             </div>
-
-            {/* What Excites Your Child Section */}
-            <div className="bg-gray-50 rounded-xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-6">
+            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-5">
                 <div className="bg-pink-100 p-2 rounded-lg">
                   <Heart className="text-pink-600" size={24} />
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-gray-800">
                   What excites your child most?
                 </h2>
               </div>
-
-              <div className="relative">
-                <select
-                  value={formData.interest}
-                  onChange={(e) => handleChange("interest", e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white appearance-none cursor-pointer text-gray-700"
-                >
-                  <option value="" disabled>
-                    Choose your child&apos;s main interest
-                  </option>
-                  <option value="technology">Technology & Coding</option>
-                  <option value="business">Business & Entrepreneurship</option>
-                  <option value="arts">Arts & Creativity</option>
-                  <option value="science">Science & Innovation</option>
-                </select>
-                <ChevronDown
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                  size={20}
-                />
-              </div>
+              <SelectField
+                value={formData.interest}
+                onChange={(e) => handleChange("interest", e.target.value)}
+                options={[
+                  { value: "", label: "Choose your child's main interest" },
+                  { value: "technology", label: "Technology & Coding" },
+                  { value: "business", label: "Business & Entrepreneurship" },
+                  { value: "arts", label: "Arts & Creativity" },
+                  { value: "science", label: "Science & Innovation" },
+                ]}
+              />
             </div>
 
-            {/* Preferred Learning Mode Section */}
-            <div className="bg-gray-50 rounded-xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-6">
+            {/* learning mode */}
+            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm text-md text-black">
+              <div className="flex items-center gap-3 mb-5">
                 <div className="bg-purple-100 p-2 rounded-lg">
                   <Monitor className="text-purple-600" size={24} />
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-gray-800">
                   Preferred Learning Mode
                 </h2>
               </div>
-
-              <div className="relative">
-                <select
-                  value={formData.learningMode}
-                  onChange={(e) => handleChange("learningMode", e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white appearance-none cursor-pointer text-gray-700"
-                >
-                  <option value="" disabled>
-                    Choose learning mode
-                  </option>
-                  <option value="online">Online Learning</option>
-                  <option value="offline">Offline Learning</option>
-                  <option value="hybrid">Hybrid (Both)</option>
-                </select>
-                <ChevronDown
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                  size={20}
-                />
-              </div>
+              <SelectField
+                value={formData.learningMode}
+                onChange={(e) => handleChange("learningMode", e.target.value)}
+                options={[
+                  { value: "", label: "Choose learning mode" },
+                  { value: "online", label: "Online Learning" },
+                  { value: "offline", label: "Offline Learning" },
+                  { value: "hybrid", label: "Hybrid (Both)" },
+                ]}
+              />
             </div>
           </div>
 
-          {/* Submit Button - Fixed at bottom */}
-          <div className="p-6 pt-0 flex-shrink-0 bg-white border-t border-gray-100">
+          {/* submit */}
+          <div className="p-6 pt-0 bg-white border-t border-gray-100">
             <button
               onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-purple-600 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-[#6a11cb] to-[#2575fc] hover:opacity-90 text-black font-semibold text-lg py-4 rounded-2xl flex justify-center items-center gap-2 shadow-lg transition-all"
             >
               <Star size={20} />
               Join the Program
@@ -284,5 +225,42 @@ export default function InnoKidzForm({ open, onOpenChange }) {
         </div>
       </div>
     </>
+  );
+}
+
+/* helper components */
+function InputField({ label, required, ...props }) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        {label} {required && <span className="text-red-500">*</span>}
+      </label>
+      <input
+        {...props}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6a11cb] focus:outline-none placeholder-gray-400"
+      />
+    </div>
+  );
+}
+
+function SelectField({ value, onChange, options }) {
+  return (
+    <div className="relative">
+      <select
+        value={value}
+        onChange={onChange}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6a11cb] focus:outline-none appearance-none cursor-pointer text-gray-700 bg-white"
+      >
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value} disabled={!opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+      <ChevronDown
+        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+        size={20}
+      />
+    </div>
   );
 }
