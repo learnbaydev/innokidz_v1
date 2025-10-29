@@ -140,8 +140,7 @@ export default function LearningTrackSection() {
       days: [
         {
           day: 9,
-          title:
-            "Branding(choose a startup idea, choose a name, design a logo)",
+          title: "Branding",
           // goal: "Brainstorm a real-world AI-powered idea and plan its features.",
           icon: Rocket,
           techLogos: [SiNotion, SiGooglesheets],
@@ -154,8 +153,7 @@ export default function LearningTrackSection() {
         },
         {
           day: 10,
-          title:
-            "Social Media presence (Build social media pages/handles, basics of promotion)",
+          title: "Social Media presence",
           goal: "Build a mini prototype and prepare to pitch it like a young entrepreneur.",
           icon: BarChart3,
           techLogos: [SiReplit, SiCanva],
@@ -175,7 +173,7 @@ export default function LearningTrackSection() {
       days: [
         {
           day: 11,
-          title: "Marketing (create carousels, posters, reels)",
+          title: "Marketing ",
           goal: "Present your startup and showcase your journey.",
           icon: Users,
           techLogos: [SiCanva, SiChatbot],

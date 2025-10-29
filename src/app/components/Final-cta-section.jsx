@@ -47,7 +47,7 @@ export default function FinalCTASection() {
             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full border border-white/20">
               <Rocket className="w-5 h-5 text-yellow-400" />
               <span className="font-semibold text-sm font-poppins">
-                Ready to Launch Your Child's Future?
+                Ready to Launch Your Child&apos;s Future?
               </span>
             </div>
 
@@ -59,8 +59,8 @@ export default function FinalCTASection() {
             </h2>
 
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed font-poppins">
-              Join hundreds of families who've already given their kids the
-              ultimate competitive advantage. Your child's entrepreneurial
+              Join hundreds of families who&apos;ve already given their kids the
+              ultimate competitive advantage. Your child&apos;s entrepreneurial
               journey starts with a single click.
             </p>
           </div>
