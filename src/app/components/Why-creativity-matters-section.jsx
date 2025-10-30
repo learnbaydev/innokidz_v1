@@ -7,11 +7,8 @@ import {
   TrendingDown,
   Zap,
 } from "lucide-react";
-// import { useDemoModal } from '@/hooks/use-demo-modal';
 
 export default function WhyCreativityMattersSection() {
-  // const { openModal } = useDemoModal();
-
   const parentChallenges = [
     {
       number: "1",

@@ -1,8 +1,8 @@
 import { Theme } from "@radix-ui/themes";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
-import "./globals.css";
-import Navigation from "./components/navigation";
 import Footer from "./components/Footer";
+import Navigation from "./components/navigation";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

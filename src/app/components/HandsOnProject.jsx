@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Brain, Palette, Globe, Mic } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
+import { Brain, Globe, Mic, Palette } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function HandsOnProject() {
   const projects = [

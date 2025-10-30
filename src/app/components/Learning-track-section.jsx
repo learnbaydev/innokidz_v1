@@ -1,24 +1,24 @@
 "use client";
 
-import { useState } from "react";
 import {
+  BarChart3,
   BookOpen,
-  Rocket,
-  Users,
-  Palette,
   Globe,
+  Palette,
+  Rocket,
   Smartphone,
+  Users,
   Video,
   Zap,
-  BarChart3,
 } from "lucide-react";
+import { useState } from "react";
 import {
-  SiChatbot,
   SiCanva,
-  SiReplit,
+  SiChatbot,
   SiGoogleforms,
   SiGooglesheets,
   SiNotion,
+  SiReplit,
 } from "react-icons/si";
 
 export default function LearningTrackSection() {

@@ -1,8 +1,4 @@
 "use client";
-import { useState } from "react";
-// import { button } from "@/components/ui/button";
-// import { input } from "@/components/ui/input";
-// import { input, button } from "@radix-ui/themes";
 import {
   Facebook,
   Instagram,
@@ -13,22 +9,17 @@ import {
   Send,
   Youtube,
 } from "lucide-react";
-// import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
-import logoImage from "../../../public/innokidz-footer-logo.png";
 import Link from "next/link";
+import { useState } from "react";
+import logoImage from "../../../public/innokidz-footer-logo.png";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  // const { toast } = useToast();
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      // toast({
-      //   title: "Success!",
-      //   description: "You've been subscribed to our newsletter.",
-      // });
       setEmail("");
     }
   };

@@ -1,15 +1,12 @@
 "use client";
 import { Calendar, Code, Menu, Star, X } from "lucide-react";
 import { useState } from "react";
-// import { useDemoModal } from "@/hooks/use-demo-modal";
-// import { button } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
 import logoPath from "../../../public/innokidz-logo.png";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // const { openModal } = useDemoModal();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);

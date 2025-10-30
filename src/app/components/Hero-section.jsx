@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
 import { Rocket } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import heroImage from "../../../public/hero-section-four-kids.png";
 import InnoKidzForm from "../components/demo-booking-modal";
 

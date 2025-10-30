@@ -1,8 +1,6 @@
 import { Award, Rocket, Shield, Star, Users } from "lucide-react";
-// import { useDemoModal } from '@/hooks/use-demo-modal';
 
 export default function FinalCTASection() {
-  // const { openModal } = useDemoModal();
   const trustBadges = [
     {
       icon: Award,
