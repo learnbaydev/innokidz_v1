@@ -179,7 +179,7 @@ export default function LearningTrackSection() {
           techLogos: [SiCanva, SiChatbot],
           activities: [
             "Draft a budget for implementing the marketing strategy",
-            "Submit your pitch script and the presentation (make sure it is data backed and has all the relevant information)",
+            "Submit your pitch script and the presentation ",
           ],
         },
         {

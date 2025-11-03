@@ -10,6 +10,7 @@ import FinalCTASection from "./components/Final-cta-section";
 import CertificateSection from "./components/CertificateSection";
 import { Hand } from "lucide-react";
 import HandsOnProject from "./components/HandsOnProject";
+import DashboardPage from "./dashboard/page";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <CertificateSection />
       <TestimonialsCompleteSection />
       <FinalCTASection />
+      <DashboardPage />
     </>
   );
 }

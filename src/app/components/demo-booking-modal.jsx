@@ -107,18 +107,18 @@ export default function InnoKidzForm({ open, onOpenChange }) {
                   onChange={(e) => handleChange("childName", e.target.value)}
                 />
                 <InputField
-                  label="Age / Date of Birth"
-                  placeholder="e.g., 11 years or 15/02/2014"
+                  label="Date of Birth"
+                  placeholder="e.g.15/02/2014"
                   required
                   value={formData.age}
                   onChange={(e) => handleChange("age", e.target.value)}
                 />
                 <InputField
-                  label="Class / Grade"
-                  placeholder="e.g., 6th Grade, Class 10"
+                  label="Class "
+                  placeholder="e.g.Class 10"
                   required
-                  value={formData.classGrade}
-                  onChange={(e) => handleChange("classGrade", e.target.value)}
+                  value={formData.class}
+                  onChange={(e) => handleChange("class", e.target.value)}
                 />
                 <InputField
                   label="School Name"

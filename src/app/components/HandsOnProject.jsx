@@ -74,12 +74,12 @@ export default function HandsOnProject() {
   return (
     <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center mb-12">
-        <h1 className="text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight mb-4 sm:mb-6 px-4">
           Hands-On Experience with{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          <span className="text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text">
             Real-Time Projects
           </span>
-        </h1>
+        </h2>
       </div>
 
       {/* Scrolling Section */}
