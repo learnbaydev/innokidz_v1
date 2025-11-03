@@ -40,16 +40,9 @@ export default function ThreeStepJourneySection() {
           <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight mb-4 sm:mb-6 px-4">
             Curious.{" "}
             <span className="text-transparent bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text">
-              Confident.
-            </span>
-            <br />
-            <span className="text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text">
-              Founder.
+              Confident Founder.
             </span>
           </h2>
-          <p className="text-lg lg:text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
-            3 steps to young entrepreneur.
-          </p>
         </div>
 
         {/* Steps Grid */}
