@@ -37,19 +37,12 @@ export default function ThreeStepJourneySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-slate-900 leading-tight font-poppins mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight mb-4 sm:mb-6 px-4">
             Curious.{" "}
             <span className="text-transparent bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text">
-              Confident.
-            </span>
-            <br />
-            <span className="text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text">
-              Founder.
+              Confident Founder.
             </span>
           </h2>
-          <p className="text-lg lg:text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
-            3 steps to young entrepreneur.
-          </p>
         </div>
 
         {/* Steps Grid */}

@@ -9,9 +9,12 @@ export default function CertificateComponent() {
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Get Certified By <span className="text-indigo-600">Innokidz</span>
-          </h1>
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight mb-4 sm:mb-6 px-4">
+            Get Certified By{" "}
+            <span className="text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text">
+              Innokidz
+            </span>
+          </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Your child receives a certificate from Innokidz—recognizing their AI
             skills, creativity, and commitment.

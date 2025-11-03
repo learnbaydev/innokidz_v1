@@ -75,12 +75,12 @@ export default function Navigation() {
                 <span className="relative z-10">Book Free Demo</span>
               </button>
 
-              {/* Login Text */}
+              {/* Login Text
               <div className="hidden md:block">
                 <span className="text-gray-600 hover:text-purple-600 font-semibold cursor-pointer text-base font-poppins transition-colors duration-300">
                   Login
                 </span>
-              </div>
+              </div> */}
 
               {/* Mobile Menu button */}
               <button
@@ -143,11 +143,11 @@ export default function Navigation() {
                 </button>
 
                 {/* Mobile Login */}
-                <div className="text-center">
+                {/* <div className="text-center">
                   <span className="flex items-center space-x-3 text-gray-600 hover:text-purple-600 transition-all duration-300 text-left py-4 px-5 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 font-semibold text-base font-poppins border border-transparent hover:border-purple-200 group">
                     Login
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

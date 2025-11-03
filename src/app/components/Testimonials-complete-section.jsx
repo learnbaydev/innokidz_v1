@@ -39,8 +39,11 @@ export default function TestimonialsCompleteSection() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight font-poppins">
-            What Parents & Kids Are Saying
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight mb-4 sm:mb-6 px-4">
+            What Parents{" "}
+            <span className="text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text">
+              & Kids Are Saying
+            </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-poppins">
             Real stories from families who&#39;ve transformed their futures
